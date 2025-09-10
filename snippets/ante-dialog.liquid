@@ -1,0 +1,42 @@
+<style>
+  .ante-dialog {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .ante-dialog-box {
+    position: relative;
+    {% comment %} background-color: white; {% endcomment %}
+    width: 50vw;
+    min-width: 300px;
+    height: 40vw;
+    {% comment %} border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); {% endcomment %}
+  }
+ .ante-dialog-content video,
+ .tmp-box,
+ .ante-dialog-content,
+ .ante-dialog-content iframe{
+    width:100%;
+    height:100%;
+    border: none;
+  }
+  .ante-dialog-content {
+    position: relative;
+  }
+
+</style>
+<ante-dialog class="ante-dialog">
+  <div class="ante-dialog-box">
+    <div class="ante-dialog-content"></div>
+  </div>
+</ante-dialog>

@@ -1,0 +1,42 @@
+quick-model {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+quick-model .quick-model-box {
+    padding: 10px;
+    pointer-events: all;
+}
+
+quick-model .quick-model-box .quick-btn {
+    padding: 10px 20px;
+    background-color: #D9F3FF;
+    color: #000;
+    cursor: pointer;
+    transition: transform .3s ease;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+quick-model .quick-model-box .quick-btn:hover {
+    transform: translateY(-30%);
+}
+#quick-model-dialog .js-product-media-item-variant{
+    width: 100%;
+    scrollbar-width: unset;
+}
+#quick-model-dialog .product-media__slider-thumbnails-slide picture {
+    width: 100%;
+}

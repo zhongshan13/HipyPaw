@@ -1,0 +1,554 @@
+{%- style -%}
+  #shopify-section-{{- section.id -}} {
+  	padding-top: {{- section.settings.offset_top_mobile -}}px;
+  	padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
+  }
+
+  @media screen and (min-width: 768px) {
+  	#shopify-section-{{- section.id -}} {
+  		padding-top: {{- section.settings.offset_top_desktop -}}px;
+  		padding-bottom: {{- section.settings.offset_bottom_desktop -}}px;
+  	}
+  }
+{%- endstyle -%}
+<style>
+     .swiper-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: {{ section.settings.bg_color }};
+      color: {{ section.settings.text_color }};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+     #shopify-section-{{ section.id }} .swiper-slide{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+     #shopify-section-{{ section.id }} .ante-profile-picture{
+      overflow: hidden;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+      #shopify-section-{{ section.id }} .ante-user-box{
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      gap: 10px;
+      align-items: center;
+    }
+    #shopify-section-{{ section.id }} .ante-user-text{
+      text-align: left;
+    }
+    #shopify-section-{{ section.id }} .ante-user{
+      padding: 20px;
+    }
+     #shopify-section-{{ section.id }} .ante-user-richtext{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+     #shopify-section-{{ section.id }} .ante-user-text{
+      font-size: 16px;
+       display: -webkit-box;
+      -webkit-line-clamp: 3;  /* 限制显示三行 */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 10px 0;
+      letter-spacing: 0.09em;
+      line-height: 1.4;
+    }
+    #shopify-section-{{ section.id }} .ante-media{
+      position:relative;
+      width: 100%;
+      height: auto;
+    }
+   #shopify-section-{{ section.id }} ante-dialog-template.ante-dialog-template {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+    #shopify-section-{{ section.id }} ante-dialog-template.ante-dialog-template .ante-open-dialog svg{
+      cursor: pointer;
+      transform: translate(3px, 3px);
+      fill: none;
+    }
+   #shopify-section-{{ section.id }}  .placeholder-svg{
+      display: block;
+    }
+    #shopify-section-{{ section.id }} .ante-open-dialog {
+      width: 45px; /* 圆形大小 */
+      height: 45px;
+      background-color: rgba(0, 0, 0, 0.4); /* 半透明背景 */
+      border-radius: 50%;
+      /* padding: 5px; */
+      transition: transform 0.3s ease;
+    }
+     #shopify-section-{{ section.id }} .ante-open-dialog:hover {
+      animation: breathe 2s infinite; /* 呼吸动画 */
+    }
+    @keyframes breathe {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1); /* 放大效果 */
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    #shopify-section-{{ section.id }} .swiper-pagination{
+      position: unset;
+    }
+   #shopify-section-{{ section.id }} .swiper-button-next:after,
+   #shopify-section-{{ section.id }}  .swiper-button-prev:after{
+      content:unset;
+    }
+    #shopify-section-{{ section.id }} .swiper-button-next,
+    #shopify-section-{{ section.id }}  .swiper-button-prev{
+      width: 44px;
+      height: 44px;
+      transform: translateY(-50%);
+      z-index: 10;
+      color: white; /* 按钮颜色 */
+      background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+      border-radius: 50%; /* 圆形背景 */
+      padding: 12px; /* 增加点击区域 */
+      cursor: pointer;
+      transition: all 0.3s ease; /* 平滑过渡 */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+    }
+
+  /* 鼠标悬停时的效果 */
+  #shopify-section-{{ section.id }}  .swiper-button-prev:hover,
+  #shopify-section-{{ section.id }}  .swiper-button-next:hover {
+      background-color: rgba(0, 0, 0, 0.8); /* 深色背景 */
+      transform: translateY(-50%) scale(1.1); /* 放大按钮 */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* 增加阴影 */
+  }
+</style>
+{%- assign heading               	= section.settings.heading -%}
+{%- assign subheading               = section.settings.subheading -%}
+{%- assign text_content          	= section.settings.text_content -%}
+{%- assign button_label          	= section.settings.button_label -%}
+{%- assign button_aria_label     	= section.settings.button_aria_label -%}
+{%- assign button_url            	= section.settings.button_url -%}
+{%- assign button_style          	= section.settings.button_style -%}
+{%- assign is_show_border_top    	= section.settings.is_show_border_top -%}
+{%- assign is_show_border_bottom 	= section.settings.is_show_border_bottom -%}
+{%- assign border_color 		 	= section.settings.border_color -%}
+{%- assign full_width 		 		= section.settings.full_width -%}
+{% capture swiper %} 
+     <ante-review class="ante-review" data-row="{{ section.settings.row }}">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide">
+              <div class="ante-media">
+                {%- if block.settings.image != blank -%}
+                  <div class="ante-media-image">
+                    {{
+                      block.settings.image
+                      | image_url: width: block.settings.image.width
+                      | image_tag: loading: 'lazy', class: 'ante-image'
+                    }}
+                  </div>
+                {% else %}
+                  {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                {%- endif -%}
+                {% assign video_url = block.settings.video_url %}
+
+                {% if block.settings.video != blank
+                  or video_url contains 'youtube.com'
+                  or video_url contains 'youtu.be'
+                  or video_url contains 'vimeo.com'
+                %}
+                  <ante-dialog-template class="ante-dialog-template">
+                    <div class="ante-open-dialog">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                      </svg>
+                    </div>
+                    <template class="dialogTemp">
+                      <div class="tmp-box">
+                        {%- if block.settings.video != blank -%}
+                          {{
+                            block.settings.video
+                            | video_tag:
+                              autoplay: true,
+                              loop: section.settings.enable_video_looping,
+                              controls: true,
+                              muted: true
+                          }}
+                        {%- elsif video_url != blank -%}
+                          {% if video_url contains 'youtube.com' or video_url contains 'youtu.be' %}
+                            {% if video_url contains 'v=' %}
+                              {%- assign video_id = video_url | split: 'v=' | last | split: '&' | first -%}
+                            {% else %}
+                              {%- assign video_id = video_url | split: '/' | last -%}
+                            {% endif %}
+                            <iframe
+                              src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1&muted=1"
+                              class="js-youtube"
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowfullscreen
+                            ></iframe>
+                          {% elsif video_url contains 'vimeo.com' %}
+                            {%- assign video_path = video_url | split: '/' | last -%}
+                            {%- assign video_id = video_path | split: '?' | first -%}
+                            <iframe
+                              src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&muted=1&playsinline=1"
+                              class="js-vimeo"
+                              allow="autoplay; fullscreen; picture-in-picture"
+                              allowfullscreen
+                            ></iframe>
+                          {% endif %}
+                        {%- endif -%}
+                      </div>
+                    </template>
+                  </ante-dialog-template>
+                {% endif %}
+              </div>
+              <div class="ante-user">
+                <div class="ante-user-box">
+                  <div class="ante-profile-picture">
+                    {% if block.settings.user_image != blank %}
+                      {{
+                        block.settings.user_image
+                        | image_url: width: block.settings.user_image.width
+                        | image_tag: loading: 'lazy'
+                      }}
+                    {% endif %}
+                  </div>
+                  <div class="ante-info">
+                    {{ block.settings.user_name }}
+                  </div>
+                </div>
+                <div class="ante-user-richtext">
+                  <span class="ante-user-text">
+                    {{ block.settings.user_remark | strip_html }}
+                  </span>
+                  <span class="ante-user-data">
+                    {{ block.settings.data_time }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="swiper-container">
+          <div class="swiper-button-next">
+            <svg
+              t="1753954264912"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="1470"
+              width="24"
+              height="24"
+            >
+              <path d="M758.528 512L384 886.528l-60.330667-60.330667 313.984-314.453333-310.954666-310.912L386.986667 140.501333z" fill="#fff" p-id="1471"></path>
+            </svg>
+          </div>
+          <div class="swiper-button-prev">
+            <svg
+              t="1753954517804"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="6126"
+              width="24"
+              height="24"
+            >
+              <path d="M259.621992 511.51086 338.343915 432.78996 338.5189 432.983365 707.532325 63.96994 764.376984 120.815623 409.900647 511.696078 764.376984 902.576533 707.532325 959.421192 338.5189 590.407768 338.343915 590.601172 259.621992 511.880273 259.806187 511.695055Z" fill="#fff" p-id="6127"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </ante-review>
+  {% endcapture %}
+{%- capture content -%}
+	<div class="image-with-text__content-wrapper">
+		<div class="image-with-text__content">
+			{%- if heading != blank -%}
+				<h2 class="h2 image-with-text__heading">
+					{{- heading -}}
+				</h2>
+			{%- endif -%}
+
+			{% if subheading != blank %}
+				<p class="image-with-text__subheading">{{ subheading }}</p>
+			{% endif %}
+
+			{%- if text_content != blank -%}
+				<div class="image-with-text__text-content section-rte">
+					{{- text_content -}}
+				</div>
+			{%- endif -%}
+
+			{{ button }}
+		</div>
+	</div>
+{%- endcapture -%}
+<section
+  class="image-with-text js-animate{% if request.visual_preview_mode or section.index == 1 %} animated{% endif %}"
+  style="{{ section_styles }}"
+>
+  <div
+    class="container   {% if full_width == false %}image-with-text__container--max-width{% endif %}"
+  >
+    {{ content }}
+    {{ swiper }}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Ante Review",
+  "tag": "section",
+  "class": "section-ante-review",
+  "settings": [
+  {
+				"id": "heading",
+				"type": "text",
+				"label": "Heading"
+			},
+			{
+				"id": "subheading",
+				"type": "textarea",
+				"label": "Subheading"
+			},
+			{
+				"id": "text_content",
+				"type": "richtext",
+				"label": "Text"
+			},
+			{
+				"id": "button_label",
+				"type": "text",
+				"label": "Button label"
+			},
+			{
+				"id": "button_aria_label",
+				"type": "text",
+				"label": "Button aria-label",
+				"info": "Need for good accessibility, e.g. 'All news about...'. [Learn more](https://utdweb.team/shopify-themes/gain/manual#section-image-with-text)"
+			},
+			{
+				"id": "button_url",
+				"type": "url",
+				"label": "Button link"
+			},
+			{
+				"id": "button_style",
+				"type": "select",
+				"label": "Button style",
+				"options": [
+					{
+						"value": "primary",
+						"label": "Primary"
+					},
+					{
+						"value": "secondary",
+						"label": "Secondary"
+					},
+					{
+						"value": "circle",
+						"label": "Circle"
+					}
+				],
+				"info": "Circle button appears with an alternate design",
+				"default": "primary"
+			},
+			{
+				"id": "is_show_border_top",
+				"type": "checkbox",
+				"label": "Show border-top",
+				"default": false,
+				"info": "Only desktop and works with a standard design"
+			},
+			{
+				"id": "is_show_border_bottom",
+				"type": "checkbox",
+				"label": "Show border-bottom",
+				"default": false,
+				"info": "Only desktop and works with a standard design"
+			},
+			{
+				"type": "color",
+				"id": "border_color",
+				"label": "Border color",
+				"default": "#e6e6e6"
+			},
+			{
+				"type": "header",
+				"content": "Layout"
+			},
+			{
+				"type": "checkbox",
+				"id": "full_width",
+				"label": "Make full width",
+				"default": true,
+				"info": "If unchecked - container width will be set based on the group 'Layout' settings in the Theme settings."
+			},
+			{
+				"type": "range",
+				"id": "offset_top_desktop",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "Desktop offset top",
+				"default": 0
+			},
+			{
+				"type": "range",
+				"id": "offset_bottom_desktop",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "Desktop offset bottom",
+				"default": 0
+			},
+			{
+				"type": "range",
+				"id": "offset_top_mobile",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "Mobile offset top",
+				"default": 0
+			},
+			{
+				"type": "range",
+				"id": "offset_bottom_mobile",
+				"min": 0,
+				"max": 100,
+				"step": 1,
+				"unit": "px",
+				"label": "Mobile offset bottom",
+				"default": 60
+			},
+    {
+      "type": "range",
+      "id": "row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop Review Number",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Crad Color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Backgroud Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "review",
+      "type": "review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video Url"
+        },
+        {
+          "type": "header",
+          "content": "User"
+        },
+        {
+          "type": "image_picker",
+          "id": "user_image",
+          "label": "User Image"
+        },
+        {
+          "type": "text",
+          "id": "user_name",
+          "label": "UserName"
+        },
+        {
+          "type": "richtext",
+          "id": "user_remark",
+          "label": "User Remark"
+        },
+        {
+          "type": "text",
+          "id": "data_time",
+          "label": "Release time"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ante Review",
+      	"settings": {
+					"heading": "Text heading",
+					"subheading": "Subheading",
+					"text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+					"button_label": "Button label",
+					"button_aria_label": "Button label",
+					"button_url": "/"
+				}
+    }
+  ]
+}
+{% endschema %}

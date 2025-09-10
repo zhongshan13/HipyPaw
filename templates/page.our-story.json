@@ -1,0 +1,387 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner-with-text": {
+      "type": "banner-with-text",
+      "settings": {
+        "label": "Label",
+        "heading": "Banner with text",
+        "text_content": "<p>Give customers details about the banner image or content on the banner.</p>",
+        "content_alignment": "center",
+        "image_border_width": 0,
+        "image_border_indent_desktop": 30,
+        "image_border_indent_mobile": 16,
+        "is_lazy": true,
+        "overlay_opacity": 50,
+        "overlay_color": "#000000",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "image_border_color": "#ffffff",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "text-section": {
+      "type": "text-section",
+      "settings": {
+        "heading": "🇺🇸 About Us — HipyPaw",
+        "subheading": "",
+        "text_content": "<p>Supporting Every Pet’s Health Journey — With Science and Gentle Care<br/>Hipy Paw didn’t start as a business idea.<br/>It started with something simpler — the honest, emotional bond between humans and their pets.<br/><br/>Like you, we’ve worried when our dog refused dinner without reason. We’ve felt helpless when a lively cat suddenly became withdrawn overnight.<br/>We’ve heard the vet say, “It’s probably just age,” while deep down knowing — that can’t be the only answer.<br/><br/>That’s why we set out to create a smarter, gentler, and truly effective way to support our pets’ health.<br/>One that combines science, empathy, and trust — and puts pets at the center of everything.<br/><br/>🐾 Why Choose HipyPaw?<br/>Science First. Always.<br/>Every Hipy Paw formula is developed with veterinary experts and animal nutritionists, based on trusted, up-to-date research — not market fads.<br/>We only use ingredients that truly serve a purpose, like turmeric for inflammation, fish oil for skin and coat, and probiotics for gut health.<br/><br/>Transparency You Can See and Feel.<br/>We clearly share the source, dosage, and function of every single ingredient we use.<br/>We don’t hide behind vague “proprietary blends” — because you have a right to know exactly what your pet is taking in, every day.<br/><br/>Natural Doesn’t Mean Hollow.<br/>To us, “natural” isn’t a marketing term. It’s a responsibility.<br/>We use bioavailable plant- and animal-based ingredients, avoid unnecessary fillers, artificial colors, or flavors, and focus on what your pet can actually absorb and benefit from.<br/><br/>Palatability Isn’t Optional. It’s Essential.<br/>We believe palatability isn’t a bonus — it’s the baseline.<br/>If your pet doesn’t want to take it, the product fails — no matter how great the ingredients are.<br/>That’s why we design every chew, drop, or powder to be not just accepted, but genuinely enjoyed.<br/><br/>💡 Why We Exist<br/>We believe pet health shouldn’t wait until something goes wrong.<br/>Just like people, pets thrive with consistent, proactive nutritional support — the kind that extends vitality and reduces illness, year after year.<br/>Our goal is to create supplements that blend seamlessly into your pet’s daily routine —<br/>not as quick fixes, but as lasting support for a healthier life.<br/>🌱 Looking Ahead<br/>We're still growing. But our mission is clear:<br/>To become the most trusted name in natural pet health — not because we shout the loudest, but because we listen the closest.<br/>Every tail wag, every gentle nuzzle, every nose boop is your pet’s way of saying, “Thank you.”<br/> And we’ll always be here to help you earn more of those moments.<br/>Welcome to HipyPaw.<br/> Health and happiness start here.</p>",
+        "text_alignment": "left",
+        "section_alignment": "center",
+        "enable_read_more": false,
+        "read_more_text": "Read more",
+        "show_less_text": "Show less",
+        "full_width": false,
+        "offset_top_desktop": 100,
+        "offset_bottom_desktop": 100,
+        "offset_top_mobile": 60,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "image-with-text-first": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "text_alignment": "left",
+        "heading": "Text heading",
+        "subheading": "",
+        "text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+        "button_label": "Button label",
+        "button_aria_label": "Button label",
+        "button_url": "/",
+        "button_style": "primary",
+        "is_show_border_top": false,
+        "is_show_border_bottom": false,
+        "border_color": "#e6e6e6",
+        "full_width": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "image-with-text-second": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "right",
+        "text_alignment": "left",
+        "heading": "Text heading",
+        "subheading": "",
+        "text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+        "button_label": "Button label",
+        "button_aria_label": "Button label",
+        "button_url": "/",
+        "button_style": "primary",
+        "is_show_border_top": false,
+        "is_show_border_bottom": false,
+        "border_color": "#e6e6e6",
+        "full_width": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "image-with-text-third": {
+      "type": "image-with-text",
+      "settings": {
+        "image_position": "left",
+        "text_alignment": "center",
+        "heading": "Text heading",
+        "subheading": "",
+        "text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+        "button_label": "Button label",
+        "button_aria_label": "Button label",
+        "button_url": "/",
+        "button_style": "primary",
+        "is_show_border_top": false,
+        "is_show_border_bottom": false,
+        "border_color": "#e6e6e6",
+        "full_width": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 60
+      }
+    },
+    "our-team": {
+      "type": "our-team",
+      "settings": {
+        "heading": "Our team",
+        "label": "",
+        "image_crop": "center",
+        "cards_alignment": "flex-start",
+        "show_border": true,
+        "border_color": "#e6e6e6",
+        "full_width": true,
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "label": "",
+        "heading": "Video heading",
+        "text_content": "<p>Add a short description to the video so that the customer can better understand what it is about.</p>",
+        "aspect_ratio": "sixteen-nine",
+        "video_type": "youtube_vimeo",
+        "external_video_url_desktop": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "external_video_url_mobile": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "full_width": true,
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "",
+        "label": "",
+        "heading": "",
+        "link_url": "",
+        "link_text": "",
+        "link_aria_label_text": "",
+        "button_style": "primary",
+        "layout": "5",
+        "enable_cards_indent": false,
+        "full_width": true,
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 40,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "section_background": "#222222",
+        "label_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "link_color": "#d33636",
+        "button_background": "#ffffff",
+        "button_color": "#000000",
+        "button_border": "#ffffff",
+        "button_background_hover": "#000000",
+        "button_color_hover": "#ffffff",
+        "button_border_hover": "#ffffff",
+        "image_border_color": "#ffffff",
+        "button_circle_text_color": "#f9f5f0",
+        "button_circle_background_color": "rgba(0,0,0,0)",
+        "button_circle_border_color": "#f9f5f0",
+        "button_circle_outer_border_color": "#8b8885",
+        "button_circle_text_color_hover": "#2c2a28",
+        "button_circle_background_color_hover": "#eab88c",
+        "button_circle_border_color_hover": "#eab88c",
+        "button_circle_outer_border_color_hover": "#8b8885",
+        "full_width": false,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "gallery": {
+      "type": "gallery",
+      "disabled": true,
+      "settings": {
+        "image_aspect_ratio": "square",
+        "image_crop": "center",
+        "overlay_opacity": 50,
+        "overlay_color": "#000000",
+        "full_width": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 25,
+        "offset_bottom_mobile": 25
+      }
+    },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefits_item-0": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "block_link": "",
+            "button_aria": ""
+          }
+        },
+        "benefits_item-1": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "block_link": "",
+            "button_aria": ""
+          }
+        },
+        "benefits_item-2": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "block_link": "",
+            "button_aria": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefits_item-0",
+        "benefits_item-1",
+        "benefits_item-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_background": "#ffffff",
+        "heading_color": "#000000",
+        "text_color": "#757575",
+        "border_color": "#e6e6e6",
+        "outline_color": "#d2d2d2",
+        "full_width": true,
+        "show_borders": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "benefits_ante_wXFx93": {
+      "type": "benefits-ante",
+      "blocks": {
+        "benefits_item_kQj6iH": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "image": "shopify://shop_images/733543767488642ae70e2ee30e03cf55.svg",
+            "block_link": "",
+            "button_aria": ""
+          }
+        },
+        "benefits_item_qPPaTt": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "image": "shopify://shop_images/609558fd96110d1edd2488f2d1f0e6a6.png",
+            "block_link": "",
+            "button_aria": ""
+          }
+        },
+        "benefits_item_iWbAc7": {
+          "type": "benefits_item",
+          "settings": {
+            "heading": "Heading",
+            "text": "Benefit text",
+            "image": "shopify://shop_images/21b3e11fb8e5cc7d077c4ac5b85aaab4.svg",
+            "block_link": "",
+            "button_aria": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefits_item_kQj6iH",
+        "benefits_item_qPPaTt",
+        "benefits_item_iWbAc7"
+      ],
+      "name": "Ante Benefits",
+      "settings": {
+        "section_background": "#ffffff",
+        "heading_color": "#000000",
+        "text_color": "#757575",
+        "border_color": "#e6e6e6",
+        "outline_color": "#d2d2d2",
+        "full_width": true,
+        "show_borders": true,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0,
+        "layout_img": "left"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "full_width": false,
+        "layout": "one_column",
+        "heading": "Newsletter",
+        "subheading": "Subheading",
+        "success_message": "Thanks for subscribing",
+        "text": "<p>Be the first to know about new collections and exclusive offers</p>",
+        "image_position": "left",
+        "email_placeholder": "Your email",
+        "button_aria_label": "Submit",
+        "section_background": "#000000",
+        "heading_color": "#757575",
+        "text_color": "#ffffff",
+        "content_color": "#c1bdb9",
+        "input_label_color": "#c1bdb9",
+        "input_color": "#ffffff",
+        "input_border_color": "#c4c4c4",
+        "button_circle_text_color": "#f9f5f0",
+        "button_circle_background_color": "rgba(0,0,0,0)",
+        "button_circle_border_color": "#f9f5f0",
+        "button_circle_outer_border_color": "#8b8885",
+        "button_circle_text_color_hover": "#2c2a28",
+        "button_circle_background_color_hover": "#eab88c",
+        "button_circle_border_color_hover": "#eab88c",
+        "button_circle_outer_border_color_hover": "#8b8885",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "disabled": true,
+      "settings": {
+        "text": "<p>Text in the ticker</p><p>Text in the ticker</p><p>Text in the ticker</p>",
+        "desktop_movement_speed": 20,
+        "mobile_movement_speed": 35,
+        "section_background": "#1B1B1B",
+        "text_color": "#ffffff",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "banner-with-text",
+    "text-section",
+    "image-with-text-first",
+    "image-with-text-second",
+    "image-with-text-third",
+    "our-team",
+    "video",
+    "featured-collection",
+    "banner",
+    "gallery",
+    "benefits",
+    "benefits_ante_wXFx93",
+    "newsletter",
+    "ticker"
+  ]
+}
