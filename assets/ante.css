@@ -15,7 +15,9 @@ quick-model .quick-model-box {
     padding: 10px;
     pointer-events: all;
 }
-
+.announcement-bar{
+    padding: 5px 0 !important;
+}
 quick-model .quick-model-box .quick-btn {
     padding: 10px 20px;
     background-color: #D9F3FF;

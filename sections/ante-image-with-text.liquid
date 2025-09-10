@@ -1,0 +1,632 @@
+{%- comment -%}
+  ------------------------------------------------------------------------------
+  	Section: Image with text
+  ------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign text_alignment = section.settings.text_alignment -%}
+{%- assign heading = section.settings.heading -%}
+{%- assign subheading = section.settings.subheading -%}
+{%- assign text_content = section.settings.text_content -%}
+{%- assign button_label = section.settings.button_label -%}
+{%- assign button_aria_label = section.settings.button_aria_label -%}
+{%- assign button_url = section.settings.button_url -%}
+{%- assign button_style = section.settings.button_style -%}
+{%- assign is_show_border_top = section.settings.is_show_border_top -%}
+{%- assign is_show_border_bottom = section.settings.is_show_border_bottom -%}
+{%- assign border_color = section.settings.border_color -%}
+{%- assign full_width = section.settings.full_width -%}
+<style>
+  .ante-Template .ante-template {
+    text-align: var(--text-alignment);
+  }
+  .ante-temp .ante-temp__heading + .ante-temp__subheading {
+    margin-top: 20px;
+  }
+  .ante-temp .ante-tmp__button {
+    margin-top: 30px;
+  }
+  .ante-image-with-text .ante-content {
+    margin-top: 40px;
+  }
+  .ante-image-with-text .ante-content .ante-images-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .ante-image-with-text .ante-content .ante-images-box .ante-box {
+    width: 100%;
+    position: relative;
+  }
+  .ante-image-with-text .ante-content-box {
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  .ante-image-with-text .ante-left .ante-left-content,
+  .ante-image-with-text .ante-right .ante-right-content {
+    text-align: var(--text-alignment);
+    justify-content: var(--text-row);
+    align-items: var(--text-column);
+  }
+  .ante-image-with-text .ante-left .ante-left-content .image-with-text__heading,
+  .ante-image-with-text .ante-right .ante-right-content .image-with-text__heading{
+    color: var(--title-color);
+  }
+   .ante-image-with-text .ante-left .ante-left-content .image-with-text__text-content,
+  .ante-image-with-text .ante-right .ante-right-content .image-with-text__text-content{
+    color: var(--text-color);
+  }
+  @media (min-width: 768px) {
+    .ante-temp .ante-temp__heading + .ante-temp__subheading {
+      margin-top: 30px;
+    }
+    .ante-temp .ante-tmp__button {
+      margin-top: 50px;
+    }
+    .ante-image-with-text .ante-content .ante-images-box {
+      flex-direction: row;
+    }
+    .ante-image-with-text .ante-content .ante-images-box .ante-box {
+      width: 50%;
+    }
+  }
+</style>
+{%- capture section_styles -%}
+	--text-alignment: {{ text_alignment | replace: "left", "start" | replace: "right", "end" }};
+	--border-top-value: {% if is_show_border_top %}1px solid {{ border_color }} {% else %}none{% endif %};
+	--border-bottom-value: {% if is_show_border_bottom %}1px solid {{ border_color }} {% else %}none{% endif %};
+{%- endcapture -%}
+
+{% capture button %}
+	{%- if button_label != blank and button_url != blank -%}
+		<a
+			href="{{- button_url -}}"
+			{%- if button_aria_label != blank -%}aria-label="{{- button_aria_label | escape -}}"{%- endif -%}
+			class="{% if button_style == 'circle' and settings.design == 'alternate' %}button-circle{% endif %} ante-tmp__button {% if settings.design == 'alternate' %}button-new{% else %}button{% endif %} button--{% if button_style == 'circle' and settings.design == 'standard' %}primary{% else %}{{- button_style -}}{% endif %}">
+			<span class="button__text {{ design }}">
+				{{- button_label -}}
+			</span>
+
+			{% if button_style == 'circle' and settings.design == 'alternate' %}
+				<span class="button-new__icon-container">
+					<span class="button-new__icon-wrapper">
+						{% render "icons-new", icon: "wave" %}
+					</span>
+				</span>
+			{% endif %}
+		</a>
+	{%- endif -%}
+{% endcapture %}
+
+{%- capture content -%}
+	<div class="ante-temp">
+		<div class="ante-temp-content">
+			{%- if heading != blank -%}
+				<h2 class="h2 ante-temp__heading">
+					{{- heading -}}
+				</h2>
+			{%- endif -%}
+
+			{% if subheading != blank %}
+				<p class="ante-temp__subheading">{{ subheading }}</p>
+			{% endif %}
+
+			{%- if text_content != blank -%}
+				<div class="ante-temp__text-content section-rte">
+					{{- text_content -}}
+				</div>
+			{%- endif -%}
+
+			{{ button }}
+		</div>
+	</div>
+{%- endcapture -%}
+
+{%- style -%}
+  #shopify-section-{{- section.id -}} {
+  	padding-top: {{- section.settings.offset_top_mobile -}}px;
+  	padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
+  }
+  {%- if section.settings.img_adaptation -%}
+  .ante-image-with-text picture img {
+    width: 100%;
+    height: auto;
+  }
+  {%- endif -%}
+
+  @media screen and (min-width: 992px) {
+  	#shopify-section-{{- section.id -}} {
+  		padding-top: {{- section.settings.offset_top_desktop -}}px;
+  		padding-bottom: {{- section.settings.offset_bottom_desktop -}}px;
+  	}
+  }
+{%- endstyle -%}
+
+{% assign is_lazy = true %}
+
+{% if section.index == 1 %}
+  {% assign is_lazy = false %}
+{% endif %}
+
+<section
+  class="ante-Template ante-image-with-text js-animate{% if request.visual_preview_mode or section.index == 1 %} animated{% endif %}"
+  style="{{ section_styles }}"
+>
+  <div
+    class="container ante-template {% if full_width == false %}page-width{% endif %}"
+  >
+    <div class="ante-header">
+      {{- content -}}
+    </div>
+    <div class="ante-content">
+      {%- liquid
+        assign desktop_image_left = section.settings.left_img_pc
+        assign mobile_image_left = section.settings.left_img_mb
+        assign desktop_image_right = section.settings.right_img_pc
+        assign mobile_image_right = section.settings.right_img_mb
+        assign left_title = section.settings.left_title
+        assign left_info = section.settings.left_info
+        assign text_alignment_left = section.settings.text_alignment_left
+        assign text_column_left = section.settings.text_column_left
+        assign text_row_left = section.settings.text_row_left
+        assign right_title = section.settings.right_title
+        assign right_info = section.settings.right_info
+        assign title_left_color = section.settings.title_left_color
+        assign text_left_color = section.settings.text_left_color
+        assign text_alignment_right = section.settings.text_alignment_right
+        assign text_column_right = section.settings.text_column_right
+        assign text_row_right = section.settings.text_row_right
+        assign title_right_color = section.settings.title_right_color
+        assign text_right_color = section.settings.text_right_color
+
+      -%}
+      <div class="ante-images-box">
+        <div
+          class="ante-left ante-box"
+          style="
+            --text-alignment: {{ text_alignment_left }};
+            --text-column:{{ text_column_left }};
+            --text-row:{{ text_row_left }};
+            --title-color: {{ title_left_color}};
+            --text-color: {{ text_left_color}};
+          "
+        >
+          <div class="ante-left-content ante-content-box ">
+            <div class="ante-left-content-box">
+              {%- if left_title != blank -%}
+                <h2 class="h2 image-with-text__heading">
+                  {{- left_title -}}
+                </h2>
+              {%- endif -%}
+
+              {%- if left_info != blank -%}
+                <div class="image-with-text__text-content section-rte">
+                  {{- left_info -}}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="ante-left-imgs">
+            {% render 'image-with-text-image',
+              desktop_image: desktop_image_left,
+              mobile_image: mobile_image_left,
+              is_lazy: is_lazy
+            %}
+          </div>
+        </div>
+        <div
+          class="ante-right ante-box"
+          style="
+            --text-alignment: {{ text_alignment_right }};
+            --text-column:{{ text_column_right }};
+            --text-row:{{ text_row_right }};
+            --title-color: {{ title_right_color}};
+            --text-color: {{ text_right_color}};
+          "
+        >
+          <div class="ante-right-content ante-content-box">
+            <div class="ante-right-content-box">
+              {%- if right_title != blank -%}
+                <h2 class="h2 image-with-text__heading">
+                  {{- right_title -}}
+                </h2>
+              {%- endif -%}
+
+              {%- if right_info != blank -%}
+                <div class="image-with-text__text-content section-rte">
+                  {{- right_info -}}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="ante-right-imgs">
+            {% render 'image-with-text-image',
+              desktop_image: desktop_image_right,
+              mobile_image: mobile_image_right,
+              is_lazy: is_lazy
+            %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- schema -%}
+{
+  "name": "Ante Image With Text",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "img_adaptation",
+      "label": "Enable Image Adaptation",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img_pc",
+      "label": "Left Image Desktop",
+      "info": "1680 x 1680px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img_mb",
+      "label": "Left Image Mobile",
+      "info": "1982 x 1982px recommended"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left Title",
+      "default": "Left Title"
+    },
+    {
+      "type": "richtext",
+      "id": "left_info",
+      "label": "Left Info",
+      "default": "<p>Left Info</p>"
+    },
+    {
+      "id": "text_alignment_left",
+      "type": "select",
+      "label": "Text alignment left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "text_column_left",
+      "type": "select",
+      "label": "Text column layout left",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "id": "text_row_left",
+      "type": "select",
+      "label": "Text row layout left",
+      "options": [
+        {
+          "value": "start",
+          "label": "Start"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "End"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "color",
+      "id": "title_left_color",
+      "label": "Title left color",
+      "default":"#000000"
+    },
+     {
+      "type": "color",
+      "id": "text_left_color",
+      "label": "Text left color",
+      "default":"#000000"
+    },
+    {
+      "type": "header",
+      "content": "Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_img_pc",
+      "label": "Right Image Desktop",
+      "info": "1680 x 1680px recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_img_mb",
+      "label": "Right Image Mobile",
+      "info": "1982 x 1982px recommended"
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Right Title",
+      "default": "Right Title"
+    },
+    {
+      "type": "richtext",
+      "id": "right_info",
+      "label": "Right Info",
+      "default": "<p>Right Info</p>"
+    },
+    {
+      "id": "text_alignment_right",
+      "type": "select",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "text_column_right",
+      "type": "select",
+      "label": "Text column layout left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "text_row_right",
+      "type": "select",
+      "label": "Text row layout left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+     {
+      "type": "color",
+      "id": "title_right_color",
+      "label": "Title right color",
+      "default":"#000000"
+    },
+     {
+      "type": "color",
+      "id": "text_right_color",
+      "label": "Text right color",
+      "default":"#000000"
+    },
+    {
+      "type": "header",
+      "content": "Set Header"
+    },
+    {
+      "id": "text_alignment",
+      "type": "select",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "id": "subheading",
+      "type": "textarea",
+      "label": "Subheading"
+    },
+    {
+      "id": "text_content",
+      "type": "richtext",
+      "label": "Text"
+    },
+    {
+      "id": "button_label",
+      "type": "text",
+      "label": "Button label"
+    },
+    {
+      "id": "button_aria_label",
+      "type": "text",
+      "label": "Button aria-label",
+      "info": "Need for good accessibility, e.g. 'All news about...'. [Learn more](https://utdweb.team/shopify-themes/gain/manual#section-image-with-text)"
+    },
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "button_style",
+      "type": "select",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        }
+      ],
+      "info": "Circle button appears with an alternate design",
+      "default": "primary"
+    },
+    {
+      "id": "is_show_border_top",
+      "type": "checkbox",
+      "label": "Show border-top",
+      "default": false,
+      "info": "Only desktop and works with a standard design"
+    },
+    {
+      "id": "is_show_border_bottom",
+      "type": "checkbox",
+      "label": "Show border-bottom",
+      "default": false,
+      "info": "Only desktop and works with a standard design"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make full width",
+      "default": true,
+      "info": "If unchecked - container width will be set based on the group 'Layout' settings in the Theme settings."
+    },
+    {
+      "type": "range",
+      "id": "offset_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ante Image With Text",
+      "settings": {
+        "heading": "Text heading",
+        "subheading": "Subheading",
+        "text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+        "button_label": "Button label",
+        "button_aria_label": "Button label",
+        "button_url": "/"
+      }
+    }
+  ]
+}
+{%- endschema -%}
