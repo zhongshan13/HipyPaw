@@ -222,9 +222,17 @@
 					</div>
 
 					{%- if text != blank -%}
-						<p class="product-banner__text">
+						{{ text
+						| replace: '<h2', '<h2 class="product-banner__text"'
+						| replace: '<h3', '<h3 class="product-banner__text"'
+						| replace: '<p', '<p class="product-banner__text"'
+						| replace: '<h1', '<h2 class="product-banner__text"'
+						| replace: '<h4', '<h3 class="product-banner__text"'
+						| replace: '<p', '<p class="product-banner__text"'
+						}}
+						{% comment %} <p class="product-banner__text">
 							{{- text -}}
-						</p>
+						</p> {% endcomment %}
 					{%- endif %}
 				</div>
 			{%- endif -%}
@@ -295,7 +303,7 @@
 			"default": "Product banner"
 		},
 		{
-			"type": "textarea",
+			"type": "richtext",
 			"id": "text",
 			"label": "Text"
 		},

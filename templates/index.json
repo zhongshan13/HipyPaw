@@ -15,10 +15,13 @@
         "image-1": {
           "type": "image",
           "settings": {
-            "image_desktop": "shopify://shop_images/Banner.png",
+            "content_max": 990,
+            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_4_33PM.png",
             "label": "",
-            "heading": "Christmas event",
-            "description": "<p>Christmas is always a happy time! Who isn't happy around this time of year. Planning ahead is key to holiday happiness. Planning and organizing will allow you to sit back and relax during the holiday and Christmas season!</p>",
+            "heading": "All-in-One Pet Wellness, Backed by Science",
+            "heading_size": "h1",
+            "heading_weight": "900",
+            "description": "<h3>From Ingredients to Results — Transparency You Can See and Feel..</h3>",
             "button_text": "about mio project",
             "button_aria_label": "read more",
             "button_link": "/",
@@ -33,7 +36,7 @@
             "background_color": "#757575",
             "background_content": "",
             "label_color": "#ffffff",
-            "heading_color": "#ffffff",
+            "heading_color": "#ffc72c",
             "description_color": "#ffffff",
             "button_text_color": "#000000",
             "button_background_color": "#ffffff",
@@ -54,8 +57,11 @@
           "type": "image",
           "disabled": true,
           "settings": {
+            "content_max": 690,
             "label": "",
             "heading": "KAMPPI HELSINKI",
+            "heading_size": "h2",
+            "heading_weight": "400",
             "description": "<p>For Kamppi’s 15th anniversary Celebrating Campaign, we created enormously high Paper flower garden as a focal centerpiece in the shopping mall. Placed on a high podium, our paper art installation stretched 4m high, giving the feeling of Alice in Wonderland scenes.</p>",
             "button_text": "Read more",
             "button_aria_label": "Read more",
@@ -92,8 +98,11 @@
           "type": "image",
           "disabled": true,
           "settings": {
+            "content_max": 690,
             "label": "",
             "heading": "ONE HUNDRED SHOREDITH",
+            "heading_size": "h2",
+            "heading_weight": "400",
             "description": "<p>Cooperating with Lore Group, led by creative director Jacu Strauss for the second time, we worked on the project for One Hundred Shoredith hotel in London, UK.</p>",
             "button_text": "Read more",
             "button_aria_label": "Read more",
@@ -166,8 +175,8 @@
         "text": "<p>Free Shipping</p><p>We are NASC Certified</p><p><em>Scientific Formula</em></p><p><em>The Choice of Millions of Pet Owners</em></p><h3></h3>",
         "desktop_movement_speed": 91,
         "mobile_movement_speed": 100,
-        "section_background": "#F5BA47",
-        "text_color": "#ffffff",
+        "section_background": "#EAEAEA",
+        "text_color": "#ac6d21",
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
@@ -179,7 +188,7 @@
       "name": "Ante Image With Text",
       "settings": {
         "img_adaptation": true,
-        "left_img_pc": "shopify://shop_images/733543767488642ae70e2ee30e03cf55.svg",
+        "left_img_pc": "shopify://shop_images/Generated_Image_September_16_2025_-_11_16AM.png",
         "left_img_mb": "shopify://shop_images/733543767488642ae70e2ee30e03cf55.svg",
         "left_title": "Left Title",
         "left_info": "<p>Left Info</p>",
@@ -209,7 +218,7 @@
         "is_show_border_bottom": false,
         "border_color": "#e6e6e6",
         "full_width": true,
-        "offset_top_desktop": 80,
+        "offset_top_desktop": 0,
         "offset_bottom_desktop": 80,
         "offset_top_mobile": 60,
         "offset_bottom_mobile": 60
@@ -313,13 +322,13 @@
         "grid_image_1": {
           "type": "grid_image",
           "settings": {
-            "label": "NEW IDEAS FOR",
-            "heading": "2025",
+            "label": "Because Their Health Deserves Nothing Less",
+            "heading": "Every ingredient is verified, every batch is tested, every claim is backed by science",
             "image_border_width": 1,
             "image_border_indent": 10,
             "url": "/",
             "overlay_color": "#000000",
-            "text_color": "#ffffff",
+            "text_color": "#000000",
             "image_border_color": "#ffffff",
             "overlay": 5
           }
@@ -327,8 +336,8 @@
         "grid_image_2": {
           "type": "grid_image",
           "settings": {
-            "label": "TOP 5 Projects for",
-            "heading": "WEDDING",
+            "label": "Because Their Health Deserves Nothing Less",
+            "heading": "Every ingredient is verified, every batch is tested, every claim is backed by science",
             "image_border_width": 1,
             "image_border_indent": 10,
             "url": "/",
@@ -481,7 +490,7 @@
       "settings": {
         "label": "Eternal Blooms",
         "heading": "主推产品（毛利高的产品）",
-        "text": "主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.",
+        "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
         "button_label": "Learn More",
         "button_link": "",
         "button_style": "circle",

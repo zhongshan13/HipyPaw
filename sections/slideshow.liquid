@@ -167,6 +167,9 @@
 						{%- for block in blocks -%}
 							{%- assign label 					= block.settings.label -%}
 							{%- assign heading 					= block.settings.heading -%}
+							{%- assign heading_size             = block.settings.heading_size -%}
+							{%- assign heading_weight 			= block.settings.heading_weight -%}
+							{%- assign content_max 				= block.settings.content_max -%}
 							{%- assign description 				= block.settings.description -%}
 							{%- assign button_text 				= block.settings.button_text -%}
 							{%- assign button_aria_label		= block.settings.button_aria_label -%}
@@ -686,7 +689,10 @@
 
 												{%- if heading != blank -%}
 													<h2
-														class="h2 slideshow__slide-heading"
+														class="{{ heading_size }} slideshow__slide-heading"
+														style="
+														--heading-weight:{{ heading_weight }};
+														"
 														{%- if enable_parallax -%}
 															data-swiper-parallax="-400"
 														{%- endif -%}
@@ -1020,7 +1026,10 @@
 
 												{%- if heading != blank -%}
 													<h2
-														class="h2 slideshow__slide-heading"
+														class="{{ heading_size }} slideshow__slide-heading"
+														style="
+														--heading-weight:{{ heading_weight }};
+														"
 														{%- if enable_parallax -%}
 															data-swiper-parallax="-400"
 														{%- endif -%}
@@ -1071,7 +1080,7 @@
 									or is_button != blank
 								-%}
 									{% if block.type != "three_col" and block.type != "two_col" %}
-										<div class="slideshow__slide-content {{ content_alignment -}}">
+										<div class="slideshow__slide-content {{ content_alignment -}}" style="--max-width: {{ content_max }}px;">
 											<div class="slideshow__slide-content-inner">
 												{%- if label != blank -%}
 													<span
@@ -1086,7 +1095,10 @@
 
 												{%- if heading != blank -%}
 													<h2
-														class="h2 slideshow__slide-heading"
+														class="{{ heading_size }} slideshow__slide-heading"
+														style="
+														--heading-weight:{{ heading_weight }};
+														"
 														{%- if enable_parallax -%}
 															data-swiper-parallax="-400"
 														{%- endif -%}
@@ -1467,6 +1479,16 @@
 					"content": "Content"
 				},
 				{
+					"type": "range",
+					"id": "content_max",
+					"max": 1200,
+					"min": 600,
+					"step": 10,
+					"unit": "px",
+					"label": "Content width",
+					"default":690
+				},
+				{
 					"type": "image_picker",
 					"id": "image_desktop",
 					"label": "Image (desktop)",
@@ -1489,6 +1511,80 @@
 					"id": "heading",
 					"label": "Heading",
 					"default": "Heading"
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"label": "Heading size",
+					"default": "h2",
+					"options": [
+						{
+							"value": "h1",
+							"label": "h1"
+						},
+						{
+							"value": "h2",
+							"label": "h2"
+						},
+						{
+							"value": "h3",
+							"label": "h3"
+						},
+						{
+							"value": "h4",
+							"label": "h4"
+						},{
+							"value": "h5",
+							"label": "h5"
+						},
+						{
+							"value": "h6",
+							"label": "h6"
+						}
+					]
+				},{
+					"type": "select",
+					"id": "heading_weight",
+					"label": "Heading weight",
+					"default": "400",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					]
 				},
 				{
 					"type": "richtext",
@@ -1757,6 +1853,90 @@
 					"id": "heading",
 					"label": "Heading",
 					"default": "Heading"
+				},
+				{
+					"type": "range",
+					"id": "content_max",
+					"max": 1200,
+					"min": 600,
+					"step": 10,
+					"unit": "px",
+					"label": "Content width",
+					"default":690
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"label": "Heading size",
+					"default": "h2",
+					"options": [
+						{
+							"value": "h1",
+							"label": "h1"
+						},
+						{
+							"value": "h2",
+							"label": "h2"
+						},
+						{
+							"value": "h3",
+							"label": "h3"
+						},
+						{
+							"value": "h4",
+							"label": "h4"
+						},{
+							"value": "h5",
+							"label": "h5"
+						},
+						{
+							"value": "h6",
+							"label": "h6"
+						}
+					]
+				},{
+					"type": "select",
+					"id": "heading_weight",
+					"label": "Heading weight",
+					"default": "400",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					]
 				},
 				{
 					"type": "richtext",
@@ -2051,6 +2231,90 @@
 					"id": "heading",
 					"label": "Heading",
 					"default": "Heading"
+				},
+				{
+					"type": "range",
+					"id": "content_max",
+					"max": 1200,
+					"min": 600,
+					"step": 10,
+					"unit": "px",
+					"label": "Content width",
+					"default":690
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"label": "Heading size",
+					"default": "h2",
+					"options": [
+						{
+							"value": "h1",
+							"label": "h1"
+						},
+						{
+							"value": "h2",
+							"label": "h2"
+						},
+						{
+							"value": "h3",
+							"label": "h3"
+						},
+						{
+							"value": "h4",
+							"label": "h4"
+						},{
+							"value": "h5",
+							"label": "h5"
+						},
+						{
+							"value": "h6",
+							"label": "h6"
+						}
+					]
+				},{
+					"type": "select",
+					"id": "heading_weight",
+					"label": "Heading weight",
+					"default": "400",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					]
 				},
 				{
 					"type": "richtext",
@@ -2405,6 +2669,90 @@
 					"default": "Heading"
 				},
 				{
+					"type": "range",
+					"id": "content_max",
+					"max": 1200,
+					"min": 600,
+					"step": 10,
+					"unit": "px",
+					"label": "Content width",
+					"default":690
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"label": "Heading size",
+					"default": "h2",
+					"options": [
+						{
+							"value": "h1",
+							"label": "h1"
+						},
+						{
+							"value": "h2",
+							"label": "h2"
+						},
+						{
+							"value": "h3",
+							"label": "h3"
+						},
+						{
+							"value": "h4",
+							"label": "h4"
+						},{
+							"value": "h5",
+							"label": "h5"
+						},
+						{
+							"value": "h6",
+							"label": "h6"
+						}
+					]
+				},{
+					"type": "select",
+					"id": "heading_weight",
+					"label": "Heading weight",
+					"default": "400",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					]
+				},
+				{
 					"type": "richtext",
 					"id": "description",
 					"label": "Text",
@@ -2657,6 +3005,90 @@
 					"id": "heading",
 					"label": "Heading",
 					"default": "Heading"
+				},
+				{
+					"type": "range",
+					"id": "content_max",
+					"max": 1200,
+					"min": 600,
+					"step": 10,
+					"unit": "px",
+					"label": "Content width",
+					"default":690
+				},
+				{
+					"type": "select",
+					"id": "heading_size",
+					"label": "Heading size",
+					"default": "h2",
+					"options": [
+						{
+							"value": "h1",
+							"label": "h1"
+						},
+						{
+							"value": "h2",
+							"label": "h2"
+						},
+						{
+							"value": "h3",
+							"label": "h3"
+						},
+						{
+							"value": "h4",
+							"label": "h4"
+						},{
+							"value": "h5",
+							"label": "h5"
+						},
+						{
+							"value": "h6",
+							"label": "h6"
+						}
+					]
+				},{
+					"type": "select",
+					"id": "heading_weight",
+					"label": "Heading weight",
+					"default": "400",
+					"options": [
+						{
+							"value": "100",
+							"label": "100"
+						},
+						{
+							"value": "200",
+							"label": "200"
+						},
+						{
+							"value": "300",
+							"label": "300"
+						},
+						{
+							"value": "400",
+							"label": "400"
+						},
+						{
+							"value": "500",
+							"label": "500"
+						},
+						{
+							"value": "600",
+							"label": "600"
+						},
+						{
+							"value": "700",
+							"label": "700"
+						},
+						{
+							"value": "800",
+							"label": "800"
+						},
+						{
+							"value": "900",
+							"label": "900"
+						}
+					]
 				},
 				{
 					"type": "richtext",
