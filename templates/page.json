@@ -81,85 +81,21 @@
         "offset_bottom_mobile": 0
       }
     },
-    "product_banner_CXnwtt": {
-      "type": "product-banner",
-      "blocks": {
-        "product_Qiwpgy": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_xcNXXX": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_hDWdyi": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_TMWXbU": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_iyiCdE": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_Tj37j9": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_Qiwpgy",
-        "product_xcNXXX",
-        "product_hDWdyi",
-        "product_TMWXbU",
-        "product_iyiCdE",
-        "product_Tj37j9"
-      ],
-      "name": "Product banner",
+    "featured_blog_jkkKHW": {
+      "type": "featured-blog",
+      "name": "Blog posts",
       "settings": {
+        "blog": "123",
         "label": "Label",
-        "heading": "Product banner",
-        "text": "",
-        "button_label": "Learn More",
-        "button_link": "",
-        "button_style": "circle",
-        "is_lazy": false,
-        "overlay_opacity": 30,
-        "arrows_color_background": "#ffffff",
-        "arrows_color": "#000000",
-        "pagination_color": "#8b8885",
-        "pagination_active_color": "#d2d2d2",
-        "label_color": "#ffffff",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "section_background": "",
-        "button_text_color": "#f9f5f0",
-        "button_background_color": "rgba(0,0,0,0)",
-        "button_border_color": "#f9f5f0",
-        "button_outer_border_color": "#8b8885",
-        "button_text_color_hover": "#2c2a28",
-        "button_background_color_hover": "#eab88c",
-        "button_border_color_hover": "#eab88c",
-        "button_outer_border_color_hover": "#8b8885",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
+        "heading": "Heading",
+        "link_text": "Link text",
+        "link_aria_label_text": "Link to blog",
+        "button_style": "primary",
+        "full_width": true,
+        "offset_top_desktop": 60,
+        "offset_bottom_desktop": 60,
+        "offset_top_mobile": 30,
+        "offset_bottom_mobile": 30
       }
     },
     "benefits_ante_LB3wGH": {
@@ -255,7 +191,7 @@
   "order": [
     "default-page",
     "banner_wqDKYy",
-    "product_banner_CXnwtt",
+    "featured_blog_jkkKHW",
     "benefits_ante_LB3wGH",
     "newsletter_9Fq3FL"
   ]

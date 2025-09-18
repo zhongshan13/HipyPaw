@@ -151,8 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     dialog.classList.add("show");
                     body.style.overflow = "hidden"
-                    
-                },1000)
+
+                }, 1000)
             });
 
             // 关闭弹窗
@@ -219,5 +219,57 @@ document.addEventListener("DOMContentLoaded", function () {
         window.customElements.define("quick-model", QUICKMODEL);
     }
 
+    class ANTESYNCSWiper extends HTMLElement {
+        connectedCallback() {
+            this.AnteSwiper()
+        }
+        AnteSwiper() {
+            const swiper_box1 = this.querySelector(".ante-bg-swiper")
+            const swiper_box2 = this.querySelector(".ante-info-swiper")
+            const swiper_box3 = this.querySelector(".ante-product-swiper")
+            const swiper_pagination = this.querySelector(".ante-product-swiper  .swiper-pagination")
+            const swiper1 = new Swiper(swiper_box1, {
+                loop: true,
+                slidesPerView: "auto",
+                speed: 500
+            })
 
+            const swiper2 = new Swiper(swiper_box2, {
+                loop: true,
+                slidesPerView: "auto",
+                speed: 500
+            })
+
+            const swiper3 = new Swiper(swiper_box3, {
+                loop: true,
+                slidesPerView: 1,
+                effect: "fade",
+                speed: 500,
+                fadeEffect: {
+                    crossFade: true, // 淡入淡出效果
+                },
+                pagination: {
+                    el: swiper_pagination,
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',  // 下一页按钮
+                    prevEl: '.swiper-button-prev',  // 上一页按钮
+                }
+            })
+            swiper1.controller.control = [swiper2, swiper3];
+            swiper3.controller.control = swiper1;
+
+            const btns = this.querySelector(".ante-product-swiper-box .ante-swiper-container")
+            btns.querySelector(".ante-swiper-button-next").addEventListener("click", function () {
+                swiper3.slideNext()
+            })
+            btns.querySelector(".ante-swiper-button-prev").addEventListener("click", function () {
+                swiper3.slidePrev()
+            })
+        }
+    }
+    if (!window.customElements.get("ante-sync-swiper")) {
+        window.customElements.define("ante-sync-swiper", ANTESYNCSWiper);
+    }
 })

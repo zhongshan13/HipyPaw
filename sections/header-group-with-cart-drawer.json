@@ -91,7 +91,7 @@
       ],
       "settings": {
         "header_type": "sticky_hide",
-        "enable_transparent_header": false,
+        "enable_transparent_header": true,
         "enable_bottom_border": true,
         "enable_mega_menu_borders": true,
         "is_show_box_shadow": true,

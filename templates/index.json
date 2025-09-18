@@ -466,7 +466,8 @@
         "product_banner_1": {
           "type": "product",
           "settings": {
-            "product": "demo4"
+            "product": "",
+            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_6_24PM.png"
           }
         },
         "product_banner_2": {
@@ -487,11 +488,12 @@
         "product_banner_2",
         "product_banner_3"
       ],
+      "disabled": true,
       "settings": {
         "label": "Eternal Blooms",
         "heading": "主推产品（毛利高的产品）",
         "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
-        "button_label": "Learn More",
+        "button_label": "",
         "button_link": "",
         "button_style": "circle",
         "is_lazy": false,
@@ -519,6 +521,69 @@
         "offset_bottom_mobile": 0
       }
     },
+    "ante_swiper_three_wtHChw": {
+      "type": "ante-swiper-three",
+      "blocks": {
+        "product_yT88Cm": {
+          "type": "product",
+          "settings": {
+            "label": "Eternal Blooms",
+            "heading": "主推产品（毛利高的产品）",
+            "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": "demo3-1",
+            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_4_33PM.png"
+          }
+        },
+        "product_VeyM6R": {
+          "type": "product",
+          "settings": {
+            "label": "Label",
+            "heading": "Product banner",
+            "text": "",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": ""
+          }
+        },
+        "product_ewhjH8": {
+          "type": "product",
+          "settings": {
+            "label": "Label",
+            "heading": "Product banner",
+            "text": "",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_yT88Cm",
+        "product_VeyM6R",
+        "product_ewhjH8"
+      ],
+      "name": "Ante sync swiper",
+      "settings": {
+        "button_style": "circle",
+        "is_lazy": false,
+        "overlay_opacity": 30,
+        "arrows_color_background": "#ffffff",
+        "arrows_color": "#000000",
+        "pagination_color": "#8b8885",
+        "pagination_active_color": "#d2d2d2",
+        "label_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "section_background": "",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
     "ticker_2": {
       "type": "ticker",
       "disabled": true,
@@ -531,182 +596,6 @@
         "offset_top_desktop": 0,
         "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
-      }
-    },
-    "featured_product": {
-      "type": "featured-product",
-      "blocks": {
-        "badges": {
-          "type": "badges",
-          "settings": {}
-        },
-        "vendor": {
-          "type": "vendor",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "sku_reviews": {
-          "type": "sku_reviews",
-          "settings": {
-            "show_sku": true,
-            "sku_text": "Art: %SKU%"
-          }
-        },
-        "inventory_status": {
-          "type": "inventory_status",
-          "settings": {
-            "inv_low_stock_text": "Low stock",
-            "inv_high_stock_text": "In stock, ready to ship",
-            "low_stock_threshold": 10
-          }
-        },
-        "countdown_timer": {
-          "type": "countdown_timer",
-          "settings": {
-            "text": "Sale ends in:",
-            "text_color": "#000000",
-            "timer_text_color": "#ffffff",
-            "timer_background_color": "#000000"
-          }
-        },
-        "options": {
-          "type": "options",
-          "settings": {
-            "show_labels": true,
-            "show_size_guide": true,
-            "variant_picker": "select",
-            "size_guide_option_name": "Size",
-            "size_guide_tab_general_name": "Dimensions",
-            "size_guide_tab_model_name": "Parameters of the model in the photo",
-            "size_guide_title": "Size guide",
-            "size_guide_text": "Size guide"
-          }
-        },
-        "quantity": {
-          "type": "quantity",
-          "settings": {
-            "show_label": true
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "sales_point_1": {
-          "type": "sales_point",
-          "settings": {
-            "sales_point_text": "Worldwide shipping"
-          }
-        },
-        "sales_point_2": {
-          "type": "sales_point",
-          "settings": {
-            "sales_point_text": "Delivery tracking"
-          }
-        },
-        "sales_point_3": {
-          "type": "sales_point",
-          "settings": {
-            "sales_point_text": "Safety packing"
-          }
-        },
-        "gift_wrap_product": {
-          "type": "gift_wrap_product",
-          "settings": {}
-        },
-        "ask_question": {
-          "type": "ask_question",
-          "settings": {
-            "button_label": "Ask a question",
-            "heading": "Have a question?",
-            "email_placeholder": "Email*",
-            "name_placeholder": "Name*",
-            "phone_placeholder": "Phone",
-            "product_url": "Reference URL*",
-            "message_placeholder": "Write message*",
-            "success_message": "Email has been successfully sent",
-            "submit_button_label": "Submit"
-          }
-        },
-        "custom_field": {
-          "type": "custom_field",
-          "settings": {
-            "field_label": "Your wishes",
-            "required_text": "The text has no mistakes"
-          }
-        },
-        "add_to_cart": {
-          "type": "add_to_cart",
-          "settings": {
-            "button_type": "secondary",
-            "show_additional_buttons": true,
-            "show_enabled_payment_types": false,
-            "show_gift_card_recipient": true
-          }
-        },
-        "pickup_availability": {
-          "type": "pickup_availability",
-          "settings": {}
-        },
-        "drawers": {
-          "type": "drawers",
-          "settings": {
-            "show_description": true,
-            "description_toggle_text": "Description",
-            "description_drawer_title": "Description",
-            "shipping_and_returns": "",
-            "shipping_and_returns_toggle_text": "Shipping and returns",
-            "shipping_and_returns_drawer_title": "Shipping and returns",
-            "custom_drawer_title_1": "Drawer heading",
-            "custom_drawer_text_1": ""
-          }
-        }
-      },
-      "block_order": [
-        "badges",
-        "vendor",
-        "title",
-        "sku_reviews",
-        "inventory_status",
-        "countdown_timer",
-        "options",
-        "quantity",
-        "price",
-        "sales_point_1",
-        "sales_point_2",
-        "sales_point_3",
-        "gift_wrap_product",
-        "ask_question",
-        "custom_field",
-        "add_to_cart",
-        "pickup_availability",
-        "drawers"
-      ],
-      "disabled": true,
-      "settings": {
-        "product": "",
-        "is_lazy": true,
-        "is_zoom_enabled": true,
-        "show_borders": false,
-        "show_arrows_mobile": true,
-        "media_layout": "stacked_2_col",
-        "thumbnails_position": "left",
-        "media_height": "full_size",
-        "stacked_smooth_scroll": true,
-        "is_enable_media_scroller": false,
-        "show_taxes_included": true,
-        "show_pay_installments": true,
-        "show_share_buttons": true,
-        "border_color": "#e6e6e6",
-        "ui_button_color": "#000000",
-        "ui_button_background_color": "#ffffff",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 40,
         "offset_bottom_mobile": 0
       }
     },
@@ -1392,8 +1281,8 @@
     "product_tabs",
     "shop_by_brand",
     "product_banner",
+    "ante_swiper_three_wtHChw",
     "ticker_2",
-    "featured_product",
     "text_section",
     "shop_the_look",
     "banner_3",

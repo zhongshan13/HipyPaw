@@ -1,0 +1,795 @@
+{%- comment -%}
+  ------------------------------------------------------------------------------
+  	Section: Image with text
+  ------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<style>
+  .ante-Template .ante-template {
+    text-align: var(--text-alignment);
+  }
+  .ante-temp .ante-temp__heading + .ante-temp__subheading {
+    margin-top: 20px;
+  }
+  .ante-temp .ante-tmp__button {
+    margin-top: 30px;
+  }
+  .ante-sync-swiper-template .ante-sync-swiper-box {
+    position: relative;
+  }
+  .ante-sync-swiper-template .ante-bg-swiper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .ante-sync-swiper-template .product-banner__slide-media {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .ante-sync-swiper-template .product-banner__media-slider-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color, rgba(0, 0, 0, 0.3));
+  }
+  .ante-sync-swiper-template .ante-product-swiper {
+    position: relative;
+    max-width: 416px;
+    width: 100%;
+  }
+  .ante-sync-swiper-template .ante-info-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    -moz-column-gap: 64px;
+    column-gap: 64px;
+    row-gap: 24px;
+  }
+  .ante-sync-swiper-template .ante-info-box {
+    pointer-events: none;
+  }
+  .ante-sync-swiper-template .ante-info-swiper,
+  .ante-sync-swiper-template .ante-product-swiper {
+    margin-left: unset;
+    margin-right: unset;
+  }
+  .ante-sync-swiper-template .product-banner__text-header {
+    max-width: 526px;
+  }
+  .ante-sync-swiper-template .product-banner__text-wrapper {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    pointer-events: none;
+  }
+  .ante-sync-swiper-template .product-banner__text {
+    max-width: 413px;
+    font-size: calc(var(--body-font-size) * 1.125);
+    color: var(--text-color, var(--color-white));
+    word-break: break-word;
+  }
+  .ante-sync-swiper-template .ante-info-swiper .swiper-slide {
+    background: transparent;
+  }
+  .ante-sync-swiper-template .ante-info-swiper .product-banner__text-header + .product-banner__text {
+    margin-top: 16px;
+  }
+  .ante-sync-swiper-template .ante-product-swiper .swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: 24px;
+  }
+  .ante-sync-swiper-template .ante-product-swiper {
+    height: 100%;
+  }
+  .ante-sync-swiper-template .ante-product-swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+    border-color: var(--pagination-active-color, var(--color-white));
+    background-color: var(--pagination-active-color, var(--color-white));
+  }
+  .ante-sync-swiper-template
+    .ante-product-swiper
+    .product-banner__pagination.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    opacity: 0.5;
+    border-color: var(--pagination-color, var(--color-white));
+  }
+  .ante-sync-swiper-template .ante-info-swiper .product-banner__label {
+    font-size: calc(var(--body-font-size) * 0.75);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--label-color, var(--color-white));
+    word-break: break-word;
+  }
+  .ante-sync-swiper-template .ante-info-swiper .product-banner__heading {
+    font-size: calc(var(--heading-font-size) * 1.5);
+    color: var(--heading-color, var(--color-white));
+  }
+
+  .ante-sync-swiper-template .ante-product-swiper .swiper-button-next::after,
+  .ante-sync-swiper-template .ante-product-swiper .swiper-button-prev::after {
+    content: unset;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box {
+    position: relative;
+    height: 100%;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next,
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    /* padding: 10px; */
+    /* border-radius: 50%; */
+    /* background-color: #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+  }
+  /* 悬浮时触发呼吸动画 */
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next:hover {
+    animation: breathing_next 1.5s infinite;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev:hover {
+    animation: breathing_prev 1.5s infinite;
+  }
+
+  /* 呼吸动画关键帧 */
+  @keyframes breathing_prev {
+    0% {
+      transform: translate(-90%, -100%) scale(1);
+    }
+    50% {
+      transform: translate(-90%, -100%) scale(1.2);
+    }
+    100% {
+      transform: translate(-90%, -100%) scale(1);
+    }
+  }
+
+  @keyframes breathing_next {
+    0% {
+      transform: translate(90%, -100%) scale(1);
+    }
+    50% {
+      transform: translate(90%, -100%) scale(1.2);
+    }
+    100% {
+      transform: translate(90%, -100%) scale(1);
+    }
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev {
+    transform: translate(-90%, -100%);
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next {
+    transform: translate(90%, -100%);
+    right: 0;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next,
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next svg,
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev,
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev svg {
+    width: 44px !important;
+    height: auto !important;
+    z-index: 9;
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev {
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev svg {
+    transform: rotate(270deg);
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next svg {
+    transform: rotate(90deg);
+  }
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev,
+  .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next{
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .ante-temp .ante-temp__heading + .ante-temp__subheading {
+      margin-top: 30px;
+    }
+    .ante-temp .ante-tmp__button {
+      margin-top: 50px;
+    }
+  }
+  @media (min-width: 992px) {
+    .ante-sync-swiper-template .ante-info-box {
+      position: relative;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 960px;
+    }
+    .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-prev,
+    .ante-sync-swiper-template .ante-product-swiper-box .ante-swiper-button-next {
+      display: block;
+    }
+    .ante-sync-swiper-template .ante-info-swiper .product-banner__heading {
+      margin-top: 16px;
+    }
+
+    .ante-sync-swiper-template .ante-info-swiper .product-banner__heading {
+      font-size: calc(var(--heading-font-size) * 2.1875);
+    }
+
+    .ante-sync-swiper-template .ante-info-swiper .product-banner__text {
+      font-size: calc(var(--body-font-size) * 1.125);
+    }
+  }
+  @media (min-width: 1200px) {
+    .ante-sync-swiper-template .ante-info-box {
+      max-width: 1140px;
+    }
+  }
+</style>
+
+{%- style -%}
+  #shopify-section-{{- section.id -}} {
+  	padding-top: {{- section.settings.offset_top_mobile -}}px;
+  	padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
+  }
+
+  @media screen and (min-width: 992px) {
+  	#shopify-section-{{- section.id -}} {
+  		padding-top: {{- section.settings.offset_top_desktop -}}px;
+  		padding-bottom: {{- section.settings.offset_bottom_desktop -}}px;
+  	}
+  }
+{%- endstyle -%}
+
+{% assign is_lazy = true %}
+{%- assign overlay_opacity = section.settings.overlay_opacity | divided_by: 100.0 -%}
+{%- assign arrows_color = section.settings.arrows_color -%}
+{%- assign arrows_color_background = section.settings.arrows_color_background -%}
+{%- assign pagination_color = section.settings.pagination_color -%}
+{%- assign pagination_active_color = section.settings.pagination_active_color -%}
+{%- assign overlay_color = section.settings.overlay_color -%}
+{%- assign label_color = section.settings.label_color -%}
+{%- assign heading_color = section.settings.heading_color -%}
+{%- assign text_color = section.settings.text_color -%}
+{%- assign section_background = section.settings.section_background -%}
+
+{%- capture section_styles -%}
+	--arrows-color: {{ arrows_color -}}; {{-  -}}
+	--arrows-color-background: {{ arrows_color_background -}}; {{-  -}}
+	--pagination-color: {{ pagination_color -}}; {{-  -}}
+	--pagination-active-color: {{ pagination_active_color -}}; {{-  -}}
+	--overlay-color: {{ overlay_color | color_modify: "alpha", overlay_opacity -}}; {{-  -}}
+	--label-color: {{ label_color -}}; {{-  -}}
+	--heading-color: {{ heading_color -}}; {{-  -}}
+	--text-color: {{ text_color -}}; {{-  -}}
+	--section-background: {{ section_background -}}; {{-  -}}
+{%- endcapture -%}
+
+{% if section.index == 1 %}
+  {% assign is_lazy = false %}
+{% endif %}
+
+<section
+  class="ante-Template ante-sync-swiper-template js-animate{% if request.visual_preview_mode or section.index == 1 %} animated{% endif %}"
+  style="{{- section_styles -}}"
+>
+  <div
+    class="product-banner__container ante-template "
+  >
+    <div class="ante-content">
+      <ante-sync-swiper>
+        <div class="ante-sync-swiper-box">
+          <div class="ante-bg-swiper swiper">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign video_desktop = block.settings.video_desktop
+                  assign video_mobile = block.settings.video_mobile | default: video_desktop
+                  assign image_desktop = block.settings.image_desktop
+                  assign image_mobile = block.settings.image_mobile | default: image_desktop
+                -%}
+                <div class="swiper-slide">
+                  <div class="product-banner__media-slider-overlay"></div>
+
+                  {%- if video_desktop != blank -%}
+                    <video
+                      class="product-banner__slide-media product-banner__slide-media--desktop js-product-banner-video"
+                      loop
+                      muted
+                      playsinline
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      {%- for source in video_desktop.sources -%}
+                        {%- if source.mime_type == 'video/mp4' -%}
+                          <source src="{{- source.url -}}" type="{{- source.mime_type -}}">
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </video>
+
+                    <video
+                      class="product-banner__slide-media product-banner__slide-media--mobile js-product-banner-video"
+                      loop
+                      muted
+                      playsinline
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      {%- for source in video_mobile.sources -%}
+                        {%- if source.mime_type == 'video/mp4' -%}
+                          <source src="{{- source.url -}}" type="{{- source.mime_type -}}">
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </video>
+                  {%- elsif image_desktop != blank -%}
+                    {%- capture img_focal -%}
+								--img-desktop-pos: {{ image_desktop.presentation.focal_point }}; --img-mob-pos: {{ image_mobile.presentation.focal_point }};
+							{%- endcapture -%}
+
+                    {%- if is_lazy -%}
+                      <picture class="lazy">
+                        <source
+                          data-srcset="{{ image_mobile | img_url: "375x" }} 1x, {{ image_mobile | img_url: "750x" }} 2x"
+                          srcset="{{ image_mobile | img_url: "10x" }} 1x, {{ image_mobile | img_url: "10x" }} 2x"
+                          media="(max-width: 375px)"
+                        >
+
+                        <source
+                          data-srcset="{{ image_mobile | img_url: "420x" }} 1x, {{ image_mobile | img_url: "840x" }} 2x"
+                          srcset="{{ image_mobile | img_url: "10x" }} 1x, {{ image_mobile | img_url: "10x" }} 2x"
+                          media="(max-width: 420px)"
+                        >
+
+                        <source
+                          data-srcset="{{ image_mobile | img_url: "575x" }} 1x, {{ image_mobile | img_url: "1150x" }} 2x"
+                          srcset="{{ image_mobile | img_url: "10x" }} 1x, {{ image_mobile | img_url: "10x" }} 2x"
+                          media="(max-width: 575px)"
+                        >
+
+                        <source
+                          data-srcset="{{ image_mobile | img_url: "767x" }} 1x, {{ image_mobile | img_url: "1534x" }} 2x"
+                          srcset="{{ image_mobile | img_url: "10x" }} 1x, {{ image_mobile | img_url: "10x" }} 2x"
+                          media="(max-width: 767px)"
+                        >
+
+                        <source
+                          data-srcset="{{ image_desktop | img_url: "991x" }} 1x, {{ image_desktop | img_url: "1982x" }} 2x"
+                          srcset="{{ image_desktop | img_url: "10x" }} 1x, {{ image_desktop | img_url: "10x" }} 2x"
+                          media="(max-width: 991px)"
+                        >
+
+                        <source
+                          data-srcset="{{ image_desktop | img_url: "1440x" }} 1x, {{ image_desktop | img_url: "2880x" }} 2x"
+                          srcset="{{ image_desktop | img_url: "10x" }} 1x, {{ image_desktop | img_url: "10x" }} 2x"
+                          media="(max-width: 1440px)"
+                        >
+
+                        <img
+                          data-srcset="{{ image_desktop | img_url: "1920x" }} 1x, {{ image_desktop | img_url: "3840x" }} 2x"
+                          srcset="{{ image_desktop | img_url: "10x" }} 1x, {{ image_desktop | img_url: "10x" }} 2x"
+                          data-src="{{- image_desktop | img_url: "1920x" -}}"
+                          src="{{ image_desktop | img_url: "10x" }}"
+                          width=""
+                          height=""
+                          alt="{{ image_desktop.alt }}"
+                          class="product-banner__slide-media product-banner__slide-media--image"
+                          style="{{ img_focal }}"
+                        >
+                      </picture>
+                    {%- else -%}
+                      <picture>
+                        <source
+                          srcset="{{ image_mobile | img_url: "375x" }} 1x, {{ image_mobile | img_url: "750x" }} 2x"
+                          media="(max-width: 375px)"
+                        >
+
+                        <source
+                          srcset="{{ image_mobile | img_url: "420x" }} 1x, {{ image_mobile | img_url: "840x" }} 2x"
+                          media="(max-width: 420px)"
+                        >
+
+                        <source
+                          srcset="{{ image_mobile | img_url: "575x" }} 1x, {{ image_mobile | img_url: "1150x" }} 2x"
+                          media="(max-width: 575px)"
+                        >
+
+                        <source
+                          srcset="{{ image_mobile | img_url: "767x" }} 1x, {{ image_mobile | img_url: "1534x" }} 2x"
+                          media="(max-width: 767px)"
+                        >
+
+                        <source
+                          srcset="{{ image_desktop | img_url: "991x" }} 1x, {{ image_desktop | img_url: "1982x" }} 2x"
+                          media="(max-width: 991px)"
+                        >
+
+                        <source
+                          srcset="{{ image_desktop | img_url: "1440x" }} 1x, {{ image_desktop | img_url: "2880x" }} 2x"
+                          media="(max-width: 1440px)"
+                        >
+
+                        <img
+                          srcset="{{ image_desktop | img_url: "1920x" }} 1x, {{ image_desktop | img_url: "3840x" }} 2x"
+                          src="{{- image_desktop | img_url: "1920x" -}}"
+                          alt="{{ image_desktop.alt }}"
+                          width=""
+                          height=""
+                          class="product-banner__slide-media product-banner__slide-media--image"
+                          style="{{ img_focal }}"
+                          {% if section.index == 1 %}
+                            fetchpriority="high"
+                          {% endif %}
+                        >
+                      </picture>
+                    {%- endif -%}
+                  {%- else -%}
+                    {% assign odd = forloop.index | modulo: 2 %}
+
+                    {%- if odd == 1 -%}
+                      {{- 'lifestyle-1' | placeholder_svg_tag: 'product-banner__slide-media' -}}
+                    {%- else -%}
+                      {{- 'lifestyle-2' | placeholder_svg_tag: 'product-banner__slide-media' -}}
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+          <div class="ante-info-box">
+            <div class="ante-info-swiper swiper">
+              <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                  {%- liquid
+                    assign label = block.settings.label | default: 'Label'
+                    assign heading = block.settings.heading | default: 'heading'
+                    assign text = block.settings.text | default: '<p>text</p>'
+                  -%}
+                  <div class="swiper-slide">
+                    <div class="product-banner__text-wrapper">
+                      <div class="product-banner__text-header">
+                        {%- if label != blank -%}
+                          <span class="product-banner__label">
+                            {{- label -}}
+                          </span>
+                        {%- endif -%}
+
+                        {%- if heading != blank -%}
+                          <h2 class="product-banner__heading">
+                            {{- heading -}}
+                          </h2>
+                        {%- endif -%}
+                      </div>
+
+                      {%- if text != blank -%}
+                        {{
+                          text
+                          | replace: '<h2', '<h2 class="product-banner__text"'
+                          | replace: '<h3', '<h3 class="product-banner__text"'
+                          | replace: '<p', '<p class="product-banner__text"'
+                          | replace: '<h1', '<h2 class="product-banner__text"'
+                          | replace: '<h4', '<h3 class="product-banner__text"'
+                          | replace: '<p', '<p class="product-banner__text"'
+                        }}
+                        {% comment %}
+                          <p class="product-banner__text">
+                          	{{- text -}}
+                          </p>
+                        {% endcomment %}
+                      {%- endif %}
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+            <div class="ante-product-swiper-box">
+              <div class="ante-product-swiper swiper">
+                <div class="swiper-wrapper">
+                  {%- for block in section.blocks -%}
+                    {%- assign product = block.settings.product -%}
+
+                    <div class="swiper-slide">
+                      {%- render 'product-card', product: product, size: 414, is_lazy: is_lazy -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+                <div class="swiper-container">
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="ante-swiper-container">
+                <div class="ante-swiper-button-next">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    t="1758100787724"
+                    class="icon"
+                    viewBox="0 0 1024 1024"
+                    version="1.1"
+                    p-id="17312"
+                    width="24"
+                    height="24"
+                  >
+                    <script xmlns=""/><path d="M1024 413.696c0-94.208-75.776-169.984-169.984-169.984-10.24 0-22.528 2.048-32.768 4.096v-8.192c0-94.208-75.776-169.984-169.984-169.984-55.296 0-104.448 26.624-137.216 69.632-30.72-40.96-79.872-69.632-137.216-69.632-94.208 0-169.984 75.776-169.984 169.984v10.24c-8.192-4.096-22.528-6.144-34.816-6.144-94.208 0-169.984 75.776-169.984 169.984S77.824 583.68 172.032 583.68h10.24c-6.144 10.24-12.288 20.48-16.384 30.72-18.432 32.768-26.624 71.68-26.624 110.592 0 129.024 104.448 233.472 233.472 233.472 53.248 0 104.448-18.432 143.36-49.152 40.96 32.768 90.112 49.152 143.36 49.152 108.544 0 200.704-73.728 227.328-178.176 4.096-14.336 6.144-32.768 6.144-53.248v-2.048c0-20.48-2.048-40.96-8.192-61.44v-4.096c0-4.096-2.048-6.144-4.096-10.24-6.144-22.528-16.384-43.008-30.72-63.488h2.048C946.176 581.632 1024 505.856 1024 413.696z m-507.904 0c-65.536 0-126.976 14.336-180.224 36.864 2.048-12.288 4.096-24.576 4.096-38.912v-10.24c12.288 2.048 24.576 4.096 38.912 4.096 55.296 0 104.448-26.624 137.216-69.632 30.72 40.96 79.872 69.632 137.216 69.632 10.24 0 22.528-2.048 32.768-4.096v8.192c0 12.288 2.048 24.576 4.096 34.816-55.296-18.432-112.64-30.72-174.08-30.72z" fill="#484578" p-id="17313"/><path d="M63.488 407.552a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM274.432 231.424a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM548.864 231.424a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM751.616 407.552a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM833.536 673.792v-4.096c0-2.048-2.048-6.144-2.048-8.192C794.624 552.96 669.696 471.04 520.192 471.04c-137.216 0-253.952 69.632-299.008 165.888-14.336 24.576-20.48 53.248-20.48 81.92 0 96.256 77.824 174.08 174.08 174.08 61.44 0 114.688-30.72 145.408-77.824 30.72 47.104 83.968 77.824 145.408 77.824 81.92 0 151.552-57.344 167.936-133.12 4.096-10.24 4.096-20.48 4.096-36.864v-4.096c2.048-14.336 0-30.72-4.096-45.056z" fill="#FFC72C" p-id="17314"/><script xmlns=""/>
+                  </svg>
+                </div>
+                <div class="ante-swiper-button-prev">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    t="1758100787724"
+                    class="icon"
+                    viewBox="0 0 1024 1024"
+                    version="1.1"
+                    p-id="17312"
+                    width="24"
+                    height="24"
+                  >
+                    <script xmlns=""/><path d="M1024 413.696c0-94.208-75.776-169.984-169.984-169.984-10.24 0-22.528 2.048-32.768 4.096v-8.192c0-94.208-75.776-169.984-169.984-169.984-55.296 0-104.448 26.624-137.216 69.632-30.72-40.96-79.872-69.632-137.216-69.632-94.208 0-169.984 75.776-169.984 169.984v10.24c-8.192-4.096-22.528-6.144-34.816-6.144-94.208 0-169.984 75.776-169.984 169.984S77.824 583.68 172.032 583.68h10.24c-6.144 10.24-12.288 20.48-16.384 30.72-18.432 32.768-26.624 71.68-26.624 110.592 0 129.024 104.448 233.472 233.472 233.472 53.248 0 104.448-18.432 143.36-49.152 40.96 32.768 90.112 49.152 143.36 49.152 108.544 0 200.704-73.728 227.328-178.176 4.096-14.336 6.144-32.768 6.144-53.248v-2.048c0-20.48-2.048-40.96-8.192-61.44v-4.096c0-4.096-2.048-6.144-4.096-10.24-6.144-22.528-16.384-43.008-30.72-63.488h2.048C946.176 581.632 1024 505.856 1024 413.696z m-507.904 0c-65.536 0-126.976 14.336-180.224 36.864 2.048-12.288 4.096-24.576 4.096-38.912v-10.24c12.288 2.048 24.576 4.096 38.912 4.096 55.296 0 104.448-26.624 137.216-69.632 30.72 40.96 79.872 69.632 137.216 69.632 10.24 0 22.528-2.048 32.768-4.096v8.192c0 12.288 2.048 24.576 4.096 34.816-55.296-18.432-112.64-30.72-174.08-30.72z" fill="#484578" p-id="17313"/><path d="M63.488 407.552a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM274.432 231.424a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM548.864 231.424a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM751.616 407.552a108.544 108.544 0 1 0 217.088 0 108.544 108.544 0 1 0-217.088 0zM833.536 673.792v-4.096c0-2.048-2.048-6.144-2.048-8.192C794.624 552.96 669.696 471.04 520.192 471.04c-137.216 0-253.952 69.632-299.008 165.888-14.336 24.576-20.48 53.248-20.48 81.92 0 96.256 77.824 174.08 174.08 174.08 61.44 0 114.688-30.72 145.408-77.824 30.72 47.104 83.968 77.824 145.408 77.824 81.92 0 151.552-57.344 167.936-133.12 4.096-10.24 4.096-20.48 4.096-36.864v-4.096c2.048-14.336 0-30.72-4.096-45.056z" fill="#FFC72C" p-id="17314"/><script xmlns=""/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ante-sync-swiper>
+    </div>
+  </div>
+</section>
+
+{%- schema -%}
+{
+  "name": "Ante sync swiper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "info": "The setting is used for alternative design.",
+      "options": [
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "base",
+          "label": "Base"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_lazy",
+      "label": "Enable lazy load",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "arrows_color_background",
+      "label": "Arrows background",
+      "default": "#fff",
+      "info": "Works with a standard design."
+    },
+    {
+      "type": "color",
+      "id": "arrows_color",
+      "label": "Arrows color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "pagination_color",
+      "label": "Pagination color",
+      "default": "#8b8885"
+    },
+    {
+      "type": "color",
+      "id": "pagination_active_color",
+      "label": "Pagination active color",
+      "default": "#D2D2D2"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "offset_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Label"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Product banner"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Learn More",
+          "info": "The setting is used for alternative design."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "info": "The setting is used for alternative design."
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "video",
+          "id": "video_desktop",
+          "label": "Banner HTML5 desktop video",
+          "info": "Has priority over the image. 3840 x 2160px recommended"
+        },
+        {
+          "type": "video",
+          "id": "video_mobile",
+          "label": "Banner HTML5 mobile video",
+          "info": "Has priority over the image. 1534 x 1534px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Banner image desktop",
+          "info": "3840 x 2160px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Banner image mobile",
+          "info": "1534 x 1534px recommended"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ante sync swiper",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{%- endschema -%}
