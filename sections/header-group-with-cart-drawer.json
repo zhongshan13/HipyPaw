@@ -14,7 +14,9 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "enable_autoplay": true,
+        "left_text": "<p>Left Text</p>",
+        "right_text": "<p>Right Text</p>",
+        "enable_autoplay": false,
         "autoplay_speed": 5,
         "show_announcement_bar": true,
         "layout": "countdown_timer",
@@ -90,7 +92,7 @@
         "megamenu_row_menus_CqTUWm"
       ],
       "settings": {
-        "header_type": "sticky_hide",
+        "header_type": "sticky",
         "enable_transparent_header": true,
         "enable_bottom_border": true,
         "enable_mega_menu_borders": true,
@@ -98,7 +100,7 @@
         "is_show_language_selector": false,
         "is_show_country_selector": false,
         "logo": "shopify://shop_images/screenshot-20250916-114957.png",
-        "logo_width": 220,
+        "logo_width": 165,
         "logo_position": "left",
         "menu": "main-menu",
         "menu_type_desktop": "both",

@@ -230,13 +230,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const swiper_pagination = this.querySelector(".ante-product-swiper  .swiper-pagination")
             const swiper1 = new Swiper(swiper_box1, {
                 loop: true,
-                slidesPerView: "auto",
+                slidesPerView: 1,
                 speed: 500
             })
 
             const swiper2 = new Swiper(swiper_box2, {
                 loop: true,
-                slidesPerView: "auto",
+                slidesPerView: 1,
                 speed: 500
             })
 
@@ -257,15 +257,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     prevEl: '.swiper-button-prev',  // 上一页按钮
                 }
             })
-            swiper1.controller.control = [swiper2, swiper3];
-            swiper3.controller.control = swiper1;
+            swiper1.controller.control = swiper2
+            swiper2.controller.control = swiper1
+
+
+            swiper1.on("slideChangeTransitionStart", () => {
+                swiper3.slideTo(swiper1.realIndex)
+            })
 
             const btns = this.querySelector(".ante-product-swiper-box .ante-swiper-container")
             btns.querySelector(".ante-swiper-button-next").addEventListener("click", function () {
-                swiper3.slideNext()
+                swiper1.slideNext()
             })
             btns.querySelector(".ante-swiper-button-prev").addEventListener("click", function () {
-                swiper3.slidePrev()
+                swiper1.slidePrev()
             })
         }
     }

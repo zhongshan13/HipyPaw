@@ -38,6 +38,14 @@ quick-model .quick-model-box .quick-btn:hover {
     transform: translateY(-30%);
 }
 
+.header .header-mega-menu .header-mega-menu__menu-item-text {
+    font-size: calc(var(--body-font-size)* 1.25);
+}
+
+.header .header-mega-menu .header-mega-menu__menu-item-wrapper {
+    margin-bottom: calc(var(--body-font-size)* 3.25);
+}
+
 #quick-model-dialog .js-product-media-item-variant {
     width: 100%;
     scrollbar-width: unset;

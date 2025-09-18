@@ -1,0 +1,524 @@
+{%- comment -%}
+  ------------------------------------------------------------------------------
+  	Section: Image with text
+  ------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign text_alignment = section.settings.text_alignment -%}
+{%- assign heading = section.settings.heading -%}
+{%- assign subheading = section.settings.subheading -%}
+{%- assign button_label = section.settings.button_label -%}
+{%- assign button_aria_label = section.settings.button_aria_label -%}
+{%- assign button_url = section.settings.button_url -%}
+{%- assign button_style = section.settings.button_style -%}
+{%- assign is_show_border_top = section.settings.is_show_border_top -%}
+{%- assign is_show_border_bottom = section.settings.is_show_border_bottom -%}
+{%- assign border_color = section.settings.border_color -%}
+{%- assign full_width = section.settings.full_width -%}
+{%- assign heading_size = section.settings.heading_size -%}
+{%- assign heading_weight = section.settings.heading_weight -%}
+{%- assign subheading_size = section.settings.subheading_size -%}
+{%- assign subheading_weight = section.settings.subheading_weight -%}
+<style>
+  .ante-Template .ante-template {
+    text-align: var(--text-alignment);
+  }
+  .ante-temp .ante-temp__heading + .ante-temp__subheading {
+    margin-top: 20px;
+  }
+  .ante-temp .ante-tmp__button {
+    margin-top: 30px;
+  }
+  .ante-media-and-text .ante-content {
+    display: flex;
+    flex-direction: row;
+  }
+  .ante-media-and-text .ante-media {
+    flex: 1;
+  }
+  .ante-media-and-text .ante-media-content {
+    flex: 1;
+  }
+  .ante-media-and-text .ante-media img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ante-media-and-text .ante-media-content {
+    padding: 1em;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 0;
+  }
+  .ante-media-and-text .ante-media-content .ante-temp__heading {
+    margin: 0 0 0.5em;
+  }
+  .ante-media-and-text  .ante-temp__heading{
+    font-weight: var(--heading_weight);
+  }
+  .ante-media-and-text  .ante-temp__subheading{
+    font-weight: var(--subheading_weight);
+  }
+  @media (max-width: 767px) {
+    .ante-media-and-text .ante-image-desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .ante-temp .ante-temp__heading + .ante-temp__subheading {
+      margin-top: 30px;
+    }
+    .ante-temp .ante-tmp__button {
+      margin-top: 50px;
+    }
+    .ante-media-and-text .ante-image-mobile {
+      display: none;
+    }
+  }
+</style>
+{%- capture section_styles -%}
+	--text-alignment: {{ text_alignment | replace: "left", "start" | replace: "right", "end" }};
+	--border-top-value: {% if is_show_border_top %}1px solid {{ border_color }} {% else %}none{% endif %};
+	--border-bottom-value: {% if is_show_border_bottom %}1px solid {{ border_color }} {% else %}none{% endif %};
+{%- endcapture -%}
+
+{% capture button %}
+	{%- if button_label != blank and button_url != blank -%}
+		<a
+			href="{{- button_url -}}"
+			{%- if button_aria_label != blank -%}aria-label="{{- button_aria_label | escape -}}"{%- endif -%}
+			class="{% if button_style == 'circle' and settings.design == 'alternate' %}button-circle{% endif %} ante-tmp__button {% if settings.design == 'alternate' %}button-new{% else %}button{% endif %} button--{% if button_style == 'circle' and settings.design == 'standard' %}primary{% else %}{{- button_style -}}{% endif %}">
+			<span class="button__text {{ design }}">
+				{{- button_label -}}
+			</span>
+
+			{% if button_style == 'circle' and settings.design == 'alternate' %}
+				<span class="button-new__icon-container">
+					<span class="button-new__icon-wrapper">
+						{% render "icons-new", icon: "wave" %}
+					</span>
+				</span>
+			{% endif %}
+		</a>
+	{%- endif -%}
+{% endcapture %}
+
+{%- style -%}
+  #shopify-section-{{- section.id -}} {
+  	padding-top: {{- section.settings.offset_top_mobile -}}px;
+  	padding-bottom: {{- section.settings.offset_bottom_mobile -}}px;
+  }
+
+  @media screen and (min-width: 992px) {
+  	#shopify-section-{{- section.id -}} {
+  		padding-top: {{- section.settings.offset_top_desktop -}}px;
+  		padding-bottom: {{- section.settings.offset_bottom_desktop -}}px;
+  	}
+  }
+{%- endstyle -%}
+
+{% assign is_lazy = true %}
+
+{% if section.index == 1 %}
+  {% assign is_lazy = false %}
+{% endif %}
+
+<section
+  class="ante-Template ante-media-and-text js-animate{% if request.visual_preview_mode or section.index == 1 %} animated{% endif %}"
+  style="{{ section_styles }}"
+>
+  <div
+    class="container ante-template {% if full_width == false %}page-width{% endif %}"
+  >
+    {% comment %}
+      <div class="ante-header">
+        {{- content -}}
+      </div>
+    {% endcomment %}
+    <div class="ante-content">
+      <div class="ante-media">
+        {%- assign image_desktop = section.settings.image_desktop -%}
+        {%- assign image_mobile = section.settings.image_mobile | default: image_desktop -%}
+        {%- if image_desktop -%}
+          {{ image_desktop | image_url: width: image_desktop.width | image_tag: class: 'ante-image-desktop' }}
+        {% else %}
+          {{- 'lifestyle-1' | placeholder_svg_tag: 'grid-images__image ante-image-desktop' -}}
+        {%- endif -%}
+        {%- if image_mobile -%}
+          {{ image_mobile | image_url: width: image_mobile.width | image_tag: class: 'ante-image-mobile' }}
+        {%- else -%}
+          {{- 'lifestyle-1' | placeholder_svg_tag: 'grid-images__image ante-image-mobile' -}}
+        {%- endif -%}
+      </div>
+      <div class="ante-media-content">
+        {% if subheading != blank %}
+          <p class="ante-temp__subheading {{ subheading_size }}" style="--subheading_weight: {{ subheading_weight }};">{{ subheading }}</p>
+        {% endif %}
+
+        {%- if heading != blank -%}
+          <h2 class="{{heading_size}} ante-temp__heading" style="--heading_weight: {{ heading_weight }};">
+            {{- heading -}}
+          </h2>
+        {%- endif -%}
+        {{ button }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- schema -%}
+{
+  "name": "Ante media and text",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "id": "box_height",
+      "type": "select",
+      "label": "Section height",
+      "options": [
+        {
+          "value": "200",
+          "label": "200"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400"
+        }
+      ],
+      "default": "200"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Image desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image mobile"
+    },
+    {
+      "id": "text_alignment",
+      "type": "select",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading weight",
+      "default": "400",
+      "options": [
+        {
+          "value": "100",
+          "label": "100"
+        },
+        {
+          "value": "200",
+          "label": "200"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400"
+        },
+        {
+          "value": "500",
+          "label": "500"
+        },
+        {
+          "value": "600",
+          "label": "600"
+        },
+        {
+          "value": "700",
+          "label": "700"
+        },
+        {
+          "value": "800",
+          "label": "800"
+        },
+        {
+          "value": "900",
+          "label": "900"
+        }
+      ]
+    },
+    {
+      "id": "subheading",
+      "type": "textarea",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "subheading_size",
+      "label": "subHeading size",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "subheading_weight",
+      "label": "subHeading weight",
+      "default": "400",
+      "options": [
+        {
+          "value": "100",
+          "label": "100"
+        },
+        {
+          "value": "200",
+          "label": "200"
+        },
+        {
+          "value": "300",
+          "label": "300"
+        },
+        {
+          "value": "400",
+          "label": "400"
+        },
+        {
+          "value": "500",
+          "label": "500"
+        },
+        {
+          "value": "600",
+          "label": "600"
+        },
+        {
+          "value": "700",
+          "label": "700"
+        },
+        {
+          "value": "800",
+          "label": "800"
+        },
+        {
+          "value": "900",
+          "label": "900"
+        }
+      ]
+    },
+    {
+      "id": "text_content",
+      "type": "richtext",
+      "label": "Text"
+    },
+    {
+      "id": "button_label",
+      "type": "text",
+      "label": "Button label"
+    },
+    {
+      "id": "button_aria_label",
+      "type": "text",
+      "label": "Button aria-label",
+      "info": "Need for good accessibility, e.g. 'All news about...'. [Learn more](https://utdweb.team/shopify-themes/gain/manual#section-image-with-text)"
+    },
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "button_style",
+      "type": "select",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        }
+      ],
+      "info": "Circle button appears with an alternate design",
+      "default": "primary"
+    },
+    {
+      "id": "is_show_border_top",
+      "type": "checkbox",
+      "label": "Show border-top",
+      "default": false,
+      "info": "Only desktop and works with a standard design"
+    },
+    {
+      "id": "is_show_border_bottom",
+      "type": "checkbox",
+      "label": "Show border-bottom",
+      "default": false,
+      "info": "Only desktop and works with a standard design"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make full width",
+      "default": true,
+      "info": "If unchecked - container width will be set based on the group 'Layout' settings in the Theme settings."
+    },
+    {
+      "type": "range",
+      "id": "offset_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop offset bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile offset bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ante media and text",
+      "settings": {
+        "heading": "Text heading",
+        "subheading": "Subheading",
+        "text_content": "<p>Combine an image with text to highlight a specific product, collection, or blog post of your choice. Enhance the content by including information on its availability, style, or possibly a review.</p>",
+        "button_label": "Button label",
+        "button_aria_label": "Button label",
+        "button_url": "/"
+      }
+    }
+  ]
+}
+{%- endschema -%}
