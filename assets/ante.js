@@ -257,12 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     prevEl: '.swiper-button-prev',  // 上一页按钮
                 }
             })
-            swiper1.controller.control = swiper2
-            swiper2.controller.control = swiper1
-
+            swiper1.controller.control = swiper3;
+            swiper3.controller.control = swiper1;
 
             swiper1.on("slideChangeTransitionStart", () => {
-                swiper3.slideTo(swiper1.realIndex)
+                swiper2.slideTo(swiper1.realIndex)
+            })
+            swiper3.on("slideChangeTransitionStart", () => {
+                swiper2.slideTo(swiper3.realIndex)
             })
 
             const btns = this.querySelector(".ante-product-swiper-box .ante-swiper-container")

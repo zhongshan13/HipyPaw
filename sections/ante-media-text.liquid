@@ -15,10 +15,35 @@
 {%- assign is_show_border_bottom = section.settings.is_show_border_bottom -%}
 {%- assign border_color = section.settings.border_color -%}
 {%- assign full_width = section.settings.full_width -%}
+{%- assign box_height = section.settings.box_height -%}
 {%- assign heading_size = section.settings.heading_size -%}
 {%- assign heading_weight = section.settings.heading_weight -%}
 {%- assign subheading_size = section.settings.subheading_size -%}
 {%- assign subheading_weight = section.settings.subheading_weight -%}
+
+{% comment %} color {% endcomment %}
+{%- assign button_text_color = section.settings.button_text_color -%}
+{%- assign button_background_color = section.settings.button_background_color -%}
+{%- assign button_border_color = section.settings.button_border_color -%}
+{%- assign button_text_color_hover = section.settings.button_text_color_hover -%}
+{%- assign button_background_color_hover = section.settings.button_background_color_hover -%}
+{%- assign button_border_color_hover = section.settings.button_border_color_hover -%}
+{%- assign subheading_color = section.settings.subheading_color -%}
+{%- assign heading_color = section.settings.heading_color -%}
+{%- assign card_color = section.settings.card_color -%}
+
+{%- capture styles_color -%}
+  --button-text-color: {{ button_text_color -}}; {{-  -}}
+  --button-background-color: {{ button_background_color -}}; {{-  -}}
+  --button-border-color: {{ button_border_color -}}; {{-  -}}
+  --button-text-color-hover: {{ button_text_color_hover -}}; {{-  -}}
+  --button-background-color-hover: {{ button_background_color_hover -}}; {{-  -}}
+  --button-border-color-hover: {{ button_border_color_hover -}}; {{-  -}}
+  --bg-card-color: {{ card_color -}};{{-  -}}
+  --subheading-color: {{ subheading_color -}};{{-  -}}
+  --heading-color: {{ heading_color -}};{{-  -}}
+{%- endcapture -%}
+
 <style>
   .ante-Template .ante-template {
     text-align: var(--text-alignment);
@@ -35,6 +60,9 @@
   }
   .ante-media-and-text .ante-media {
     flex: 1;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
   .ante-media-and-text .ante-media-content {
     flex: 1;
@@ -56,15 +84,52 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 0;
+    background-color: var(--bg-card-color);
   }
   .ante-media-and-text .ante-media-content .ante-temp__heading {
     margin: 0 0 0.5em;
   }
-  .ante-media-and-text  .ante-temp__heading{
+  .ante-media-and-text .ante-temp__heading {
     font-weight: var(--heading_weight);
+    color: var(--subheading-color);
   }
-  .ante-media-and-text  .ante-temp__subheading{
+  .ante-media-and-text .ante-temp__subheading {
     font-weight: var(--subheading_weight);
+    color: var(--heading-color);
+  }
+  .ante-media-and-text .ante-button {
+    border-color: var(--button-border-color, var(--color-text-primary));
+    background-color: var(--button-background-color, var(--color-text-primary));
+    color: var(--button-text-color, var(--color-white));
+  }
+
+  @media (-moz-touch-enabled: 0), (hover: hover), (pointer: fine) {
+    .ante-media-and-text .ante-button:hover {
+      background-color: var(--button-background-color-hover);
+      border-color: var(--button-border-color-hover);
+      color: var(--button-text-color-hover);
+    }
+  }
+  @media (min-width: 851px) {
+    .ante-media-and-text .ante-content {
+      height: var(--box-height);
+    }
+  }
+  @media (max-width: 850px) {
+    .ante-media-and-text .ante-content {
+      flex-direction: column-reverse;
+    }
+    .ante-media-and-text .ante-media-content {
+      border-top-left-radius: 20px;
+      border-bottom-right-radius: 0;
+    }
+    .ante-media-and-text .ante-media {
+      flex: auto;
+      height: var(--box-height);
+      max-height: var(--box-height);
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 20px;
+    }
   }
   @media (max-width: 767px) {
     .ante-media-and-text .ante-image-desktop {
@@ -95,7 +160,9 @@
 		<a
 			href="{{- button_url -}}"
 			{%- if button_aria_label != blank -%}aria-label="{{- button_aria_label | escape -}}"{%- endif -%}
-			class="{% if button_style == 'circle' and settings.design == 'alternate' %}button-circle{% endif %} ante-tmp__button {% if settings.design == 'alternate' %}button-new{% else %}button{% endif %} button--{% if button_style == 'circle' and settings.design == 'standard' %}primary{% else %}{{- button_style -}}{% endif %}">
+			class="{% if button_style == 'circle' and settings.design == 'alternate' %}button-circle{% endif %} ante-tmp__button {% if settings.design == 'alternate' %}button-new{% else %}button{% endif %} button--{% if button_style == 'circle' and settings.design == 'standard' %}primary{% else %}{{- button_style -}}{% endif %}
+      ante-button
+      ">
 			<span class="button__text {{ design }}">
 				{{- button_label -}}
 			</span>
@@ -137,13 +204,14 @@
 >
   <div
     class="container ante-template {% if full_width == false %}page-width{% endif %}"
+    style="{{ styles_color }}"
   >
     {% comment %}
       <div class="ante-header">
         {{- content -}}
       </div>
     {% endcomment %}
-    <div class="ante-content">
+    <div class="ante-content" style="--box-height: {{ box_height }}px;">
       <div class="ante-media">
         {%- assign image_desktop = section.settings.image_desktop -%}
         {%- assign image_mobile = section.settings.image_mobile | default: image_desktop -%}
@@ -160,11 +228,13 @@
       </div>
       <div class="ante-media-content">
         {% if subheading != blank %}
-          <p class="ante-temp__subheading {{ subheading_size }}" style="--subheading_weight: {{ subheading_weight }};">{{ subheading }}</p>
+          <p class="ante-temp__subheading {{ subheading_size }}" style="--subheading_weight: {{ subheading_weight }};">
+            {{ subheading }}
+          </p>
         {% endif %}
 
         {%- if heading != blank -%}
-          <h2 class="{{heading_size}} ante-temp__heading" style="--heading_weight: {{ heading_weight }};">
+          <h2 class="{{ heading_size }} ante-temp__heading" style="--heading_weight: {{ heading_weight }};">
             {{- heading -}}
           </h2>
         {%- endif -%}
@@ -505,6 +575,64 @@
       "unit": "px",
       "label": "Mobile offset bottom",
       "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button label",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color_hover",
+      "label": "Button label (hover)",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color_hover",
+      "label": "Button background (hover)",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color_hover",
+      "label": "Button border (hover)",
+      "default": "#000000"
     }
   ],
   "presets": [

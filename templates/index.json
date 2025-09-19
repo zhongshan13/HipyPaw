@@ -236,7 +236,7 @@
         "text_alignment": "left",
         "heading": "Text heading",
         "heading_size": "h3",
-        "heading_weight": "900",
+        "heading_weight": "500",
         "subheading": "Subheading",
         "subheading_size": "h1",
         "subheading_weight": "900",
@@ -249,14 +249,24 @@
         "is_show_border_bottom": false,
         "border_color": "#e6e6e6",
         "full_width": false,
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 60
+        "offset_top_desktop": 40,
+        "offset_bottom_desktop": 40,
+        "offset_top_mobile": 40,
+        "offset_bottom_mobile": 60,
+        "subheading_color": "#000000",
+        "heading_color": "#000000",
+        "card_color": "#ffc72c",
+        "button_text_color": "#ffffff",
+        "button_background_color": "#000000",
+        "button_border_color": "#000000",
+        "button_text_color_hover": "#000000",
+        "button_background_color_hover": "#ffffff",
+        "button_border_color_hover": "#000000"
       }
     },
     "ante_image_with_text_LtM3eH": {
       "type": "ante-image-with-text",
+      "disabled": true,
       "name": "Ante Image With Text",
       "settings": {
         "img_adaptation": true,
@@ -322,72 +332,6 @@
         "offset_bottom_mobile": 0
       }
     },
-    "trend_products": {
-      "type": "trends-products",
-      "blocks": {
-        "trend_products_1": {
-          "type": "product",
-          "settings": {
-            "product_1": "",
-            "horizontal_position_1": 83,
-            "vertical_position_1": 67,
-            "product_2": "",
-            "horizontal_position_2": 50,
-            "vertical_position_2": 50,
-            "product_3": "",
-            "horizontal_position_3": 75,
-            "vertical_position_3": 75
-          }
-        },
-        "trend_products_2": {
-          "type": "product",
-          "settings": {
-            "product_1": "",
-            "horizontal_position_1": 16,
-            "vertical_position_1": 31,
-            "product_2": "",
-            "horizontal_position_2": 50,
-            "vertical_position_2": 50,
-            "product_3": "",
-            "horizontal_position_3": 75,
-            "vertical_position_3": 75
-          }
-        },
-        "trend_products_3": {
-          "type": "product",
-          "settings": {
-            "product_1": "",
-            "horizontal_position_1": 60,
-            "vertical_position_1": 52,
-            "product_2": "",
-            "horizontal_position_2": 37,
-            "vertical_position_2": 37,
-            "product_3": "",
-            "horizontal_position_3": 75,
-            "vertical_position_3": 75
-          }
-        }
-      },
-      "block_order": [
-        "trend_products_1",
-        "trend_products_2",
-        "trend_products_3"
-      ],
-      "disabled": true,
-      "settings": {
-        "label": "",
-        "title": "TREND PRODUCTS",
-        "show_one_open": false,
-        "aspect_ratio": "portrait",
-        "hotspot_background": "#f9f5f0",
-        "hotspot_color": "#2c2a28",
-        "full_width": false,
-        "offset_top_desktop": 100,
-        "offset_bottom_desktop": 100,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
-      }
-    },
     "grid-images": {
       "type": "grid-images",
       "blocks": {
@@ -433,46 +377,65 @@
         "offset_bottom_mobile": 100
       }
     },
-    "product_tabs": {
-      "type": "product-tabs",
+    "banner_3": {
+      "type": "banner",
       "blocks": {
-        "product_tabs_1": {
-          "type": "tab",
+        "banner_block": {
+          "type": "full_width",
           "settings": {
-            "heading": "WALL DECOR",
-            "product_list": []
-          }
-        },
-        "product_tabs_2": {
-          "type": "tab",
-          "settings": {
-            "heading": "GIFTS",
-            "product_list": []
-          }
-        },
-        "product_tabs_3": {
-          "type": "tab",
-          "settings": {
-            "heading": "On sale",
-            "product_list": []
+            "desktop_image_height": "600px",
+            "mobile_image_height": "350px",
+            "media_type": "html_video",
+            "label": "",
+            "heading": "",
+            "text": "<p>RAINS is a Danish rainwear company founded in 2012. Based on an early initiative to interpret the traditional rubber raincoat in a novel way, the company has, since its foundation, grown into an accomplished international rainwear brand. A</p>",
+            "button_text": "",
+            "button_url": "/",
+            "button_aria": "",
+            "make_link_full_media": false,
+            "overlay_opacity": 15,
+            "overlay_color": "#000000",
+            "image_border_width": 1,
+            "image_border_indent_desktop": 10,
+            "image_border_indent_mobile": 10,
+            "enable_lazy_load": true,
+            "external_video_url_desktop": "",
+            "external_video_url_mobile": "",
+            "content_alignment": "center",
+            "content_alignment_mobile": "center",
+            "block_alignment": "center"
           }
         }
       },
       "block_order": [
-        "product_tabs_1",
-        "product_tabs_2",
-        "product_tabs_3"
+        "banner_block"
       ],
-      "disabled": true,
       "settings": {
-        "label": "",
-        "heading": "Customer Favorites",
-        "enable_cards_indent": false,
+        "section_background": "#eaeaea",
+        "label_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "link_color": "#d33636",
+        "button_background": "#ffffff",
+        "button_color": "#000000",
+        "button_border": "#ffffff",
+        "button_background_hover": "#eaeaea",
+        "button_color_hover": "#ffffff",
+        "button_border_hover": "#ffffff",
+        "image_border_color": "#ffffff",
+        "button_circle_text_color": "#f9f5f0",
+        "button_circle_background_color": "rgba(0,0,0,0)",
+        "button_circle_border_color": "#f9f5f0",
+        "button_circle_outer_border_color": "#8b8885",
+        "button_circle_text_color_hover": "#2c2a28",
+        "button_circle_background_color_hover": "#eab88c",
+        "button_circle_border_color_hover": "#eab88c",
+        "button_circle_outer_border_color_hover": "#8b8885",
         "full_width": false,
-        "offset_top_desktop": 80,
-        "offset_bottom_desktop": 100,
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
         "offset_top_mobile": 0,
-        "offset_bottom_mobile": 100
+        "offset_bottom_mobile": 0
       }
     },
     "shop_by_brand": {
@@ -501,15 +464,8 @@
         },
         "shop_by_brand_3": {
           "type": "brand",
-          "disabled": true,
           "settings": {
-            "brand_link": ""
-          }
-        },
-        "shop_by_brand_4": {
-          "type": "brand",
-          "disabled": true,
-          "settings": {
+            "brand_image": "shopify://shop_images/ChatGPT_Image_2025_9_19_10_42_09.png",
             "brand_link": ""
           }
         }
@@ -518,288 +474,17 @@
         "shop_by_brand_0",
         "shop_by_brand_1",
         "shop_by_brand_2",
-        "shop_by_brand_3",
-        "shop_by_brand_4"
+        "shop_by_brand_3"
       ],
       "settings": {
         "label": "",
-        "heading": "置放证书认证等区域",
-        "card_background": "#342d19",
+        "heading": "",
+        "card_background": "#f7f4eb",
         "full_width": false,
-        "offset_top_desktop": 100,
+        "offset_top_desktop": 77,
         "offset_bottom_desktop": 100,
-        "offset_top_mobile": 100,
+        "offset_top_mobile": 72,
         "offset_bottom_mobile": 100
-      }
-    },
-    "product_banner": {
-      "type": "product-banner",
-      "blocks": {
-        "product_banner_1": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_6_24PM.png"
-          }
-        },
-        "product_banner_2": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_banner_3": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_banner_1",
-        "product_banner_2",
-        "product_banner_3"
-      ],
-      "disabled": true,
-      "settings": {
-        "label": "Eternal Blooms",
-        "heading": "主推产品（毛利高的产品）",
-        "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "circle",
-        "is_lazy": false,
-        "overlay_opacity": 10,
-        "arrows_color_background": "#ffffff",
-        "arrows_color": "#000000",
-        "pagination_color": "#8b8885",
-        "pagination_active_color": "#d2d2d2",
-        "label_color": "#ffffff",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "section_background": "",
-        "button_text_color": "#f9f5f0",
-        "button_background_color": "rgba(0,0,0,0)",
-        "button_border_color": "#f9f5f0",
-        "button_outer_border_color": "#8b8885",
-        "button_text_color_hover": "#2c2a28",
-        "button_background_color_hover": "#eab88c",
-        "button_border_color_hover": "#eab88c",
-        "button_outer_border_color_hover": "#8b8885",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 20,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
-      }
-    },
-    "ante_swiper_three_wtHChw": {
-      "type": "ante-swiper-three",
-      "blocks": {
-        "product_yT88Cm": {
-          "type": "product",
-          "settings": {
-            "label": "Eternal Blooms",
-            "heading": "主推产品（毛利高的产品）",
-            "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
-            "button_label": "Learn More",
-            "button_link": "",
-            "product": "demo3-1",
-            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_4_33PM.png"
-          }
-        },
-        "product_VeyM6R": {
-          "type": "product",
-          "settings": {
-            "label": "Label",
-            "heading": "Product banner",
-            "text": "",
-            "button_label": "Learn More",
-            "button_link": "",
-            "product": ""
-          }
-        },
-        "product_ewhjH8": {
-          "type": "product",
-          "settings": {
-            "label": "Label",
-            "heading": "Product banner",
-            "text": "",
-            "button_label": "Learn More",
-            "button_link": "",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_yT88Cm",
-        "product_VeyM6R",
-        "product_ewhjH8"
-      ],
-      "name": "Ante sync swiper",
-      "settings": {
-        "button_style": "circle",
-        "is_lazy": false,
-        "overlay_opacity": 30,
-        "arrows_color_background": "#ffffff",
-        "arrows_color": "#000000",
-        "pagination_color": "#8b8885",
-        "pagination_active_color": "#d2d2d2",
-        "label_color": "#ffffff",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "section_background": "",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
-      }
-    },
-    "ticker_2": {
-      "type": "ticker",
-      "disabled": true,
-      "settings": {
-        "text": "<h3>Limited Stock Alert!</h3><h3>Explore the Unmatched Sale of Last Year's Collection, Now Accessible in Our Store! </h3><h3>Seize the Moment and Elevate Your Wardrobe Today!</h3>",
-        "desktop_movement_speed": 97,
-        "mobile_movement_speed": 97,
-        "section_background": "#F4f4f4",
-        "text_color": "#000000",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
-      }
-    },
-    "text_section": {
-      "type": "text-section",
-      "disabled": true,
-      "settings": {
-        "heading": "Shop The look",
-        "subheading": "",
-        "text_content": "",
-        "text_alignment": "center",
-        "section_alignment": "center",
-        "enable_read_more": false,
-        "read_more_text": "Read more",
-        "show_less_text": "Show less",
-        "full_width": false,
-        "offset_top_desktop": 100,
-        "offset_bottom_desktop": 40,
-        "offset_top_mobile": 100,
-        "offset_bottom_mobile": 0
-      }
-    },
-    "shop_the_look": {
-      "type": "shop-the-look",
-      "blocks": {
-        "shop_the_look_0": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "point_position_top": 28,
-            "point_position_left": 30
-          }
-        },
-        "shop_the_look_1": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "point_position_top": 60,
-            "point_position_left": 53
-          }
-        },
-        "shop_the_look_2": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "point_position_top": 50,
-            "point_position_left": 75
-          }
-        }
-      },
-      "block_order": [
-        "shop_the_look_0",
-        "shop_the_look_1",
-        "shop_the_look_2"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "label": "",
-        "image_crop": "center",
-        "image_position": "left",
-        "is_lazy": true,
-        "is_point_animated": true,
-        "point_color": "#2c2a28",
-        "point_bg_color": "#f9f5f0",
-        "image_background": "#c4c4c4",
-        "image_border_color": "#e6e6e6",
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 100,
-        "offset_top_mobile": 40,
-        "offset_bottom_mobile": 100
-      }
-    },
-    "banner_3": {
-      "type": "banner",
-      "blocks": {
-        "banner_block": {
-          "type": "full_width",
-          "settings": {
-            "desktop_image_height": "600px",
-            "mobile_image_height": "350px",
-            "media_type": "html_video",
-            "label": "",
-            "heading": "专家留言板块",
-            "text": "<p>RAINS is a Danish rainwear company founded in 2012. Based on an early initiative to interpret the traditional rubber raincoat in a novel way, the company has, since its foundation, grown into an accomplished international rainwear brand. A</p>",
-            "button_text": "",
-            "button_url": "/",
-            "button_aria": "",
-            "make_link_full_media": false,
-            "overlay_opacity": 15,
-            "overlay_color": "#000000",
-            "image_border_width": 1,
-            "image_border_indent_desktop": 10,
-            "image_border_indent_mobile": 10,
-            "enable_lazy_load": true,
-            "external_video_url_desktop": "",
-            "external_video_url_mobile": "",
-            "content_alignment": "center",
-            "content_alignment_mobile": "center",
-            "block_alignment": "center"
-          }
-        }
-      },
-      "block_order": [
-        "banner_block"
-      ],
-      "settings": {
-        "section_background": "#222222",
-        "label_color": "#ffffff",
-        "heading_color": "#ffffff",
-        "text_color": "#ffffff",
-        "link_color": "#d33636",
-        "button_background": "#ffffff",
-        "button_color": "#000000",
-        "button_border": "#ffffff",
-        "button_background_hover": "#000000",
-        "button_color_hover": "#ffffff",
-        "button_border_hover": "#ffffff",
-        "image_border_color": "#ffffff",
-        "button_circle_text_color": "#f9f5f0",
-        "button_circle_background_color": "rgba(0,0,0,0)",
-        "button_circle_border_color": "#f9f5f0",
-        "button_circle_outer_border_color": "#8b8885",
-        "button_circle_text_color_hover": "#2c2a28",
-        "button_circle_background_color_hover": "#eab88c",
-        "button_circle_border_color_hover": "#eab88c",
-        "button_circle_outer_border_color_hover": "#8b8885",
-        "full_width": false,
-        "offset_top_desktop": 0,
-        "offset_bottom_desktop": 0,
-        "offset_top_mobile": 0,
-        "offset_bottom_mobile": 0
       }
     },
     "story_telling": {
@@ -909,6 +594,69 @@
         "offset_bottom_mobile": 0
       }
     },
+    "ante_swiper_three_wtHChw": {
+      "type": "ante-swiper-three",
+      "blocks": {
+        "product_yT88Cm": {
+          "type": "product",
+          "settings": {
+            "label": "Eternal Blooms",
+            "heading": "主推产品（毛利高的产品）",
+            "text": "<p>主要讲解产品的一个重要性，比如软骨素，需要给顾客营造买点焦虑，告诉顾客目前患关节病的狗狗占大多数，不管是平时运动多的还是craftsmanship. Delicate petals, vibrant colors, and intricate details create an enchanting ambiance. Add elegance and a touch of nature's beauty to any space with these everlasting blooms. Embrace the artistry of paper flowers and elevate your decor with their timeless allure.</p>",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": "demo3-1",
+            "image_desktop": "shopify://shop_images/Generated_Image_September_15_2025_-_4_33PM.png"
+          }
+        },
+        "product_VeyM6R": {
+          "type": "product",
+          "settings": {
+            "label": "Label",
+            "heading": "Product banner",
+            "text": "",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": ""
+          }
+        },
+        "product_ewhjH8": {
+          "type": "product",
+          "settings": {
+            "label": "Label",
+            "heading": "Product banner",
+            "text": "",
+            "button_label": "Learn More",
+            "button_link": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_yT88Cm",
+        "product_VeyM6R",
+        "product_ewhjH8"
+      ],
+      "name": "Ante sync swiper",
+      "settings": {
+        "button_style": "circle",
+        "is_lazy": false,
+        "overlay_opacity": 30,
+        "arrows_color_background": "#ffffff",
+        "arrows_color": "#000000",
+        "pagination_color": "#8b8885",
+        "pagination_active_color": "#d2d2d2",
+        "label_color": "#ffffff",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "section_background": "",
+        "offset_top_desktop": 0,
+        "offset_bottom_desktop": 0,
+        "offset_top_mobile": 0,
+        "offset_bottom_mobile": 0
+      }
+    },
     "reviews": {
       "type": "reviews",
       "blocks": {
@@ -983,76 +731,6 @@
         "product_info_text_color": "#000000",
         "product_info_background_color": "#ffffff",
         "image_link_label_color": "#ffffff"
-      }
-    },
-    "gallery_carousel": {
-      "type": "gallery-carousel",
-      "blocks": {
-        "gallery_carousel_0": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_1": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_2": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_3": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_4": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_5": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        },
-        "gallery_carousel_6": {
-          "type": "slide",
-          "settings": {
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "gallery_carousel_0",
-        "gallery_carousel_1",
-        "gallery_carousel_2",
-        "gallery_carousel_3",
-        "gallery_carousel_4",
-        "gallery_carousel_5",
-        "gallery_carousel_6"
-      ],
-      "disabled": true,
-      "settings": {
-        "label": "",
-        "heading": "PORTFOLIO",
-        "image_aspect_ratio": "square",
-        "image_crop": "center",
-        "enable_arrows": false,
-        "enable_autoplay": true,
-        "autoplay_speed": 3,
-        "offset_top_desktop": 100,
-        "offset_bottom_desktop": 30,
-        "offset_top_mobile": 70,
-        "offset_bottom_mobile": 100
       }
     },
     "featured-blog": {
@@ -1349,19 +1027,12 @@
     "ante_media_text_qadAV7",
     "ante_image_with_text_LtM3eH",
     "featured_products_DdzkJX",
-    "trend_products",
     "grid-images",
-    "product_tabs",
-    "shop_by_brand",
-    "product_banner",
-    "ante_swiper_three_wtHChw",
-    "ticker_2",
-    "text_section",
-    "shop_the_look",
     "banner_3",
+    "shop_by_brand",
     "story_telling",
+    "ante_swiper_three_wtHChw",
     "reviews",
-    "gallery_carousel",
     "featured-blog",
     "gallery",
     "ante_review_T9YGbx",
